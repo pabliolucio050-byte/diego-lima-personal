@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Diego Lima Personal | Consultoria fitness">
 <meta property="og:description" content="Menos gordura. Mais músculo. Consultoria online com o personal Diego Lima, com opção de nutricionista. Planos a partir de R$ 83/mês.">
-<meta property="og:image" content="https://diego-lima-personal.vercel.app/img/og.jpg">
+<meta property="og:image" content="https://diego-lima-personal.vercel.app/og.jpg">
 <meta property="og:url" content="https://diego-lima-personal.vercel.app/">
 <meta property="og:locale" content="pt_BR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,7 +151,15 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px
 .res-tabs button[aria-pressed="true"]{background:var(--amarelo);color:var(--chao);border-color:var(--amarelo)}
 .res-grid{display:grid;gap:22px;align-items:center}
 @media (min-width:860px){.res-grid{grid-template-columns:.9fr 1.1fr;gap:48px}}
-.comp{position:relative;max-width:460px;width:100%;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--linha);aspect-ratio:var(--ar,760/827);touch-action:pan-y;user-select:none;background:var(--chao-2)}
+.res-thumbs{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 12px;margin-bottom:12px;scrollbar-width:thin}
+.res-thumbs button{flex:0 0 84px;scroll-snap-align:start;border:2px solid var(--linha);border-radius:12px;background:var(--chao-2);padding:0;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:3/4;transition:border-color .15s,transform .15s}
+.res-thumbs button:hover{transform:translateY(-2px)}
+.res-thumbs button[aria-pressed="true"]{border-color:var(--amarelo)}
+.res-thumbs img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.res-thumbs span{position:absolute;left:0;right:0;bottom:0;background:rgba(13,14,16,.8);font:700 .72rem var(--f-cond);letter-spacing:.06em;text-transform:uppercase;padding:4px 2px;text-align:center}
+.res-thumbs button[aria-pressed="true"] span{background:var(--amarelo);color:var(--chao)}
+@media (min-width:860px){.res-thumbs button{flex-basis:96px}}
+.comp{position:relative;max-width:460px;width:min(100%,calc(76vh * var(--ar,1)));margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--linha);aspect-ratio:var(--ar,760/827);touch-action:pan-y;user-select:none;background:var(--chao-2)}
 .comp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .comp .dep{clip-path:inset(0 0 0 var(--x,50%))}
 .comp .linha-c{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;margin-left:-1.5px;background:var(--amarelo);pointer-events:none}
@@ -398,7 +406,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
       </div>
     </div>
     <div class="foto-diego">
-      <div class="quadro"><img src="img/diego-hero.jpg" alt="Diego Lima na academia" width="360" height="450"></div>
+      <div class="quadro"><img src="diego-hero.jpg" alt="Diego Lima, personal trainer, na academia" width="480" height="600"></div>
       <a class="play-chip" href="#desafio" id="heroPlay"><span class="pc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>Assista o Diego · 30s</a>
       <div class="carimbo">Planos a partir de<b>R$ 83/mês</b></div>
     </div>
@@ -500,12 +508,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     <div class="head rv">
       <div class="eyebrow">Resultados reais</div>
       <h2>Quem decidiu, <span class="hl">mudou</span></h2>
-      <p class="sub">Arraste a linha amarela para comparar o antes e o depois.</p>
+      <p class="sub">10 transformações reais. Escolha uma foto e arraste a linha amarela para comparar.</p>
     </div>
-    <div class="res-tabs rv" role="group" aria-label="Escolher resultado">
-      <button type="button" aria-pressed="true" data-c="0">Aluno 1 · frente</button>
-      <button type="button" aria-pressed="false" data-c="1">Aluno 1 · costas</button>
-      <button type="button" aria-pressed="false" data-c="2">Aluno 2</button>
+    <div class="res-thumbs rv" role="group" aria-label="Escolher resultado">
+      <button type="button" aria-pressed="true" data-c="0"><img src="img/frente-depois.jpg" alt="" loading="lazy"><span>Frente</span></button>
+      <button type="button" aria-pressed="false" data-c="1"><img src="img/costas-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
+      <button type="button" aria-pressed="false" data-c="2"><img src="img/aluno-depois.jpg" alt="" loading="lazy"><span>22% para 15%</span></button>
+      <button type="button" aria-pressed="false" data-c="3"><img src="r5-depois.jpg" alt="" loading="lazy"><span>Frente</span></button>
+      <button type="button" aria-pressed="false" data-c="4"><img src="r6-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
+      <button type="button" aria-pressed="false" data-c="5"><img src="r7-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
+      <button type="button" aria-pressed="false" data-c="6"><img src="r9-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
+      <button type="button" aria-pressed="false" data-c="7"><img src="r10-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
+      <button type="button" aria-pressed="false" data-c="8"><img src="r4-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
+      <button type="button" aria-pressed="false" data-c="9"><img src="r8-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
     </div>
     <div class="res-grid">
       <div class="rv">
@@ -611,7 +626,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
         <div class="planos"><article class="plano"><div class="pl-topo"><h3>Trimestral</h3><span class="dur">3 meses</span></div><s class="de">De 3x R$ 179,90</s><span class="por">Por apenas</span><div class="parc"><small>3x</small><em>R$</em><b>141,68</b></div><p class="vista">ou <b>R$ 397,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 115</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Trimestral da Consultoria Fitness (3x de R$ 141,68 ou R$ 397,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o trimestral</a></article><article class="plano"><div class="pl-topo"><h3>Semestral</h3><span class="dur">6 meses</span></div><s class="de">De 6x R$ 141,68</s><span class="por">Por apenas</span><div class="parc"><small>6x</small><em>R$</em><b>112,00</b></div><p class="vista">ou <b>R$ 597,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 178</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Semestral da Consultoria Fitness (6x de R$ 112,00 ou R$ 597,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o semestral</a></article><article class="plano top"><span class="tag">Melhor custo</span><div class="pl-topo"><h3>Anual</h3><span class="dur">12 meses</span></div><s class="de">De 12x R$ 141,68</s><span class="por">Por apenas</span><div class="parc"><small>12x</small><em>R$</em><b>103,11</b></div><p class="vista">ou <b>R$ 997,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 463</span><a class="btn btn-am" data-msg="Oi, Diego! Vi sua página e quero o plano Anual da Consultoria Fitness (12x de R$ 103,11 ou R$ 997,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o anual</a></article></div>
       </div>
       <div class="grupo g-nutri rv">
-        <div class="g-head"><div class="g-foto"><img src="img/equipe.jpg" alt="Nutricionista Thamires Weber e personal Diego Lima" width="586" height="490" loading="lazy"></div><div class="g-txt"><span class="g-selo">Mais completo</span><h3>Fitness + nutricional</h3><p>Diego + nutricionista Thamires Weber</p><ul class="g-inclui"><li>Tudo da consultoria fitness</li><li>Acompanhamento nutricional</li><li>Plano alimentar para o seu objetivo</li><li>Nutricionista CRN 1-22412</li></ul></div></div>
+        <div class="g-head"><div class="g-foto"><img src="equipe.jpg" alt="Nutricionista Thamires Weber e personal Diego Lima" width="586" height="490" loading="lazy"></div><div class="g-txt"><span class="g-selo">Mais completo</span><h3>Fitness + nutricional</h3><p>Diego + nutricionista Thamires Weber</p><ul class="g-inclui"><li>Tudo da consultoria fitness</li><li>Acompanhamento nutricional</li><li>Plano alimentar para o seu objetivo</li><li>Nutricionista CRN 1-22412</li></ul></div></div>
         <div class="planos"><article class="plano"><div class="pl-topo"><h3>Trimestral</h3><span class="dur">3 meses</span></div><s class="de">De 3x R$ 329,00</s><span class="por">Por apenas</span><div class="parc"><small>3x</small><em>R$</em><b>265,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 192</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Trimestral da Consultoria Fitness + Acompanhamento Nutricional (3x de R$ 265,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o trimestral</a></article><article class="plano"><div class="pl-topo"><h3>Semestral</h3><span class="dur">6 meses</span></div><s class="de">De 6x R$ 265,00</s><span class="por">Por apenas</span><div class="parc"><small>6x</small><em>R$</em><b>199,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 396</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Semestral da Consultoria Fitness + Acompanhamento Nutricional (6x de R$ 199,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o semestral</a></article><article class="plano top"><span class="tag">Melhor custo</span><div class="pl-topo"><h3>Anual</h3><span class="dur">12 meses</span></div><s class="de">De 12x R$ 265,00</s><span class="por">Por apenas</span><div class="parc"><small>12x</small><em>R$</em><b>149,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 1.392</span><a class="btn btn-am" data-msg="Oi, Diego! Vi sua página e quero o plano Anual da Consultoria Fitness + Acompanhamento Nutricional (12x de R$ 149,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o anual</a></article></div>
       </div>
     </div>
@@ -751,13 +766,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 
   /* Comparador antes e depois */
   var CASOS = [
-    {a:"img/frente-antes.jpg", d:"img/frente-depois.jpg", ar:"760/827", t:"Barriga e peitoral mais secos", x:"Redução visível de gordura na região abdominal e no peitoral, com ombros e braços mais definidos.", tags:["Recomposição corporal","Treino + alimentação"]},
-    {a:"img/costas-antes.jpg", d:"img/costas-depois.jpg", ar:"760/827", t:"Costas definidas", x:"Menos gordura na lombar e nas laterais, com as costas mais largas e desenhadas.", tags:["Recomposição corporal","Mesmo aluno, de costas"]},
-    {a:"img/aluno-antes.jpg", d:"img/aluno-depois.jpg", ar:"600/958", t:"De 22% para 15% de gordura", x:"Aluno de 23 anos que reduziu 7 pontos percentuais de gordura, com abdômen e braços mais definidos.", tags:["23 anos","22% para 15% de gordura"]}
+    {"a": "img/frente-antes.jpg", "d": "img/frente-depois.jpg", "ar": "760/827", "t": "Barriga e peitoral mais secos", "x": "Redução visível de gordura na região abdominal e no peitoral, com ombros e braços mais definidos.", "tags": ["Recomposição corporal", "De frente"]},
+    {"a": "img/costas-antes.jpg", "d": "img/costas-depois.jpg", "ar": "760/827", "t": "Costas definidas", "x": "Menos gordura na lombar e nas laterais, com as costas mais largas e desenhadas.", "tags": ["Recomposição corporal", "De costas"]},
+    {"a": "img/aluno-antes.jpg", "d": "img/aluno-depois.jpg", "ar": "600/958", "t": "De 22% para 15% de gordura", "x": "Aluno de 23 anos que reduziu 7 pontos percentuais de gordura, com abdômen e braços mais definidos.", "tags": ["23 anos", "22% para 15% de gordura"]},
+    {"a": "r5-antes.jpg", "d": "r5-depois.jpg", "ar": "435/900", "t": "Cintura e abdômen menores", "x": "Redução visível de gordura abdominal, com a cintura mais desenhada.", "tags": ["Aluna", "De frente"]},
+    {"a": "r6-antes.jpg", "d": "r6-depois.jpg", "ar": "438/900", "t": "Costas e cintura mais secas", "x": "A mesma aluna de costas: menos gordura na cintura e nas costas.", "tags": ["Aluna", "De costas"]},
+    {"a": "r7-antes.jpg", "d": "r7-depois.jpg", "ar": "442/900", "t": "Costas, braços e cintura", "x": "Menos gordura nas costas e na cintura, com braços mais finos e definidos.", "tags": ["Aluna", "De costas"]},
+    {"a": "r9-antes.jpg", "d": "r9-depois.jpg", "ar": "444/900", "t": "Costas largas e definidas", "x": "Menos gordura na lombar e mais músculo nas costas e nos ombros. Recomposição na prática.", "tags": ["Recomposição corporal", "De costas"]},
+    {"a": "r10-antes.jpg", "d": "r10-depois.jpg", "ar": "444/900", "t": "Abdômen mais seco", "x": "De perfil: barriga menor e tronco mais definido.", "tags": ["Recomposição corporal", "De perfil"]},
+    {"a": "r4-antes.jpg", "d": "r4-depois.jpg", "ar": "531/900", "t": "Abdômen mais reto", "x": "De perfil: barriga reduzida e postura mais alinhada.", "tags": ["Aluno", "De perfil"]},
+    {"a": "r8-antes.jpg", "d": "r8-depois.jpg", "ar": "444/900", "t": "Barriga reduzida", "x": "De perfil: menos volume abdominal e cintura mais fina.", "tags": ["Aluno", "De perfil"]}
   ];
   var comp = document.getElementById("comp"), rg = document.getElementById("cRange");
   rg.addEventListener("input", function(){ comp.style.setProperty("--x", rg.value + "%"); });
-  var tabs = Array.prototype.slice.call(document.querySelectorAll(".res-tabs button"));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".res-thumbs button"));
   tabs.forEach(function(b){ b.addEventListener("click", function(){
     var c = CASOS[+b.dataset.c];
     tabs.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
