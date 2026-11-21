@@ -259,6 +259,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 .barra .btn{width:100%;max-width:520px;margin:0 auto;display:flex}
 .barra.hide{transform:translateY(110%)}
 .progresso{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:0;background:var(--amarelo);z-index:61}
+.foto-2{position:relative;overflow:hidden;max-width:380px;width:100%;margin:0 auto}
+.foto-2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.final .form-grid{align-items:center}
+.final .wrap.form-grid{display:grid}
 /* Planos */
 .grupos{display:grid;gap:34px}
 .grupo{border:1px solid var(--linha);border-radius:24px;padding:22px 16px;background:linear-gradient(180deg,#14161a,var(--chao))}
@@ -293,6 +297,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 .plano .vista b{color:var(--giz)}
 .plano .eco{align-self:flex-start;background:rgba(31,168,85,.14);color:#6fdc9a;border-radius:8px;padding:5px 10px;font-size:.85rem;font-weight:600;margin:4px 0 8px}
 .plano .btn{margin-top:auto}
+@media (max-width:899px){
+  .planos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:14px 4px 10px;margin:0 -16px;padding-left:16px;padding-right:16px;scrollbar-width:none}
+  .planos::-webkit-scrollbar{display:none}
+  .plano{flex:0 0 82%;scroll-snap-align:center}
+  .plano.top{margin-top:0}
+  .arrasta{display:flex}
+}
+.arrasta{display:none;justify-content:center;align-items:center;gap:8px;font-size:.85rem;color:var(--cinza);margin-top:4px}
+.arrasta::after{content:"→";color:var(--amarelo);font-size:1.1rem}
 /* Hero foto e chip */
 .foto-diego .quadro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .foto-diego .quadro::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,14,16,.75))}
@@ -420,89 +433,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   </div>
 </div>
 
-
-<section id="desafio">
-  <div class="wrap desafio-grid">
-    <div class="video-box rv">
-      <video id="vid" src="video/desafio.mp4" poster="img/diego-poster.jpg" playsinline preload="metadata"></video>
-      <button type="button" class="v-play" id="vPlay" aria-label="Assistir ao vídeo do desafio"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>
-      <div class="v-barra" aria-hidden="true"><i id="vProg"></i></div>
-      <button type="button" class="v-som" id="vSom" hidden>Toque para pausar</button>
-    </div>
-    <div class="stack rv">
-      <div class="eyebrow" style="margin:0">O desafio</div>
-      <h2>Falta de tempo <span class="hl">não é mais desculpa</span></h2>
-      <p class="sub" style="margin:0">Em 30 segundos o Diego explica como funciona a consultoria: treino curto, acompanhamento de perto e opção com nutricionista para você parar de adiar.</p>
-      <div class="v-checks">
-        <span>Treinos curtos</span><span>Opção com nutricionista</span><span>Online, todo o Brasil</span>
-      </div>
-      <div class="btns"><a class="btn btn-am" href="#oferta">Quero entrar no desafio</a></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="head rv">
-      <div class="eyebrow">Isso é com você?</div>
-      <h2>Você treina, faz dieta e o <span class="hl">espelho não muda?</span></h2>
-    </div>
-    <div class="dores">
-      <article class="dor rv"><span class="x">01</span><div><h3>Falta de tempo</h3><p>Treino de uma hora e meia não cabe na sua rotina. Aí você pula um dia, dois, e desiste.</p></div></article>
-      <article class="dor rv"><span class="x">02</span><div><h3>Dieta que tira o músculo</h3><p>Corta tudo, a balança desce um pouco e o corpo fica murcho. Depois volta tudo.</p></div></article>
-      <article class="dor rv"><span class="x">03</span><div><h3>Treino sem estratégia</h3><p>Copia treino da internet, faz o mesmo há meses e não sabe se está evoluindo.</p></div></article>
-    </div>
-    <p class="virada rv">O problema não é você. É fazer <span class="marca-texto">sozinho e sem método.</span></p>
-  </div>
-</section>
-
-<section id="quiz" style="background:linear-gradient(180deg,var(--chao),#121317)">
-  <div class="wrap narrow">
-    <div class="head rv">
-      <div class="eyebrow">Teste de 30 segundos</div>
-      <h2>Descubra o seu <span class="hl">ponto de partida</span></h2>
-      <p class="sub">Responda 3 perguntas. O resultado vai junto na sua mensagem para o Diego.</p>
-    </div>
-    <div class="quiz rv" id="quizBox" aria-live="polite">
-      <div class="q-passo"><span id="qN">Pergunta 1 de 3</span><span>Consultoria Diego Lima</span></div>
-      <div class="q-barra"><i id="qBar"></i></div>
-      <div id="qArea"></div>
-    </div>
-  </div>
-</section>
-
-<section id="metodo">
-  <div class="wrap">
-    <div class="head rv">
-      <div class="eyebrow">Como funciona</div>
-      <h2>Consultoria de <span class="hl">recomposição corporal</span></h2>
-      <p class="sub">Perder gordura e ganhar músculo ao mesmo tempo. Sem treino infinito, sem dieta de fome.</p>
-    </div>
-    <div class="passos">
-      <article class="passo rv"><span class="n">1</span><h3>Avaliação</h3><p>Você conta sua rotina, objetivo, histórico e manda suas fotos. Tudo começa daqui.</p></article>
-      <article class="passo rv"><span class="n">2</span><h3>Treino curto</h3><p>Treino montado para o seu tempo e o seu nível, focado no que mais dá resultado.</p></article>
-      <article class="passo rv"><span class="n">3</span><h3>Alimentação</h3><p>No plano com nutricionista, a Thamires Weber monta uma alimentação que você consegue seguir, sem cortar o que mantém o músculo.</p></article>
-      <article class="passo rv"><span class="n">4</span><h3>Ajustes</h3><p>Acompanhamento durante todo o plano, com ajustes conforme o seu corpo responde.</p></article>
-    </div>
-  </div>
-</section>
-
-
-<section id="jornada" style="background:linear-gradient(180deg,var(--chao),#121317)">
-  <div class="wrap narrow">
-    <div class="head rv">
-      <div class="eyebrow">Sua jornada</div>
-      <h2>Arraste e veja os <span class="hl">seus 45 dias</span></h2>
-    </div>
-    <div class="jornada rv">
-      <div class="j-topo"><span class="j-dia">Dia <b id="jDia">1</b></span><span class="j-fase" id="jFase">Semana 1</span></div>
-      <input type="range" id="jRange" min="1" max="45" value="1" aria-label="Escolher o dia da jornada">
-      <div class="j-marcos" aria-hidden="true"><span>1</span><span>8</span><span>15</span><span>22</span><span>31</span><span>45</span></div>
-      <div class="j-card" id="jCard" aria-live="polite"><h3 id="jTit">Avaliação e largada</h3><p id="jTxt">Você envia sua rotina, objetivo e fotos. Recebe treino e plano alimentar e faz o primeiro treino.</p></div>
-    </div>
-  </div>
-</section>
-
 <section id="resultados" style="background:#121317">
   <div class="wrap">
     <div class="head rv">
@@ -544,69 +474,69 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   </div>
 </section>
 
-
-<section id="tempo">
-  <div class="wrap sim-grid">
+<section id="desafio">
+  <div class="wrap desafio-grid">
+    <div class="video-box rv">
+      <video id="vid" src="video/desafio.mp4" poster="img/diego-poster.jpg" playsinline preload="metadata"></video>
+      <button type="button" class="v-play" id="vPlay" aria-label="Assistir ao vídeo do desafio"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+      <div class="v-barra" aria-hidden="true"><i id="vProg"></i></div>
+      <button type="button" class="v-som" id="vSom" hidden>Toque para pausar</button>
+    </div>
     <div class="stack rv">
-      <div class="eyebrow" style="margin:0">Simulador de tempo</div>
-      <h2>Quanto tempo <span class="hl">cabe na sua semana?</span></h2>
-      <p class="sub" style="margin:0">Escolha quantos dias e quantos minutos você consegue treinar. Compare com o treino tradicional de academia.</p>
-    </div>
-    <div class="sim rv">
-      <div class="sim-linha"><span class="sim-rot">Dias por semana</span><div class="chips" data-grupo="dias"><button type="button" data-v="3" aria-pressed="false">3</button><button type="button" data-v="4" aria-pressed="true">4</button><button type="button" data-v="5" aria-pressed="false">5</button><button type="button" data-v="6" aria-pressed="false">6</button></div></div>
-      <div class="sim-linha"><span class="sim-rot">Minutos por treino</span><div class="chips" data-grupo="min"><button type="button" data-v="20" aria-pressed="false">20</button><button type="button" data-v="30" aria-pressed="false">30</button><button type="button" data-v="40" aria-pressed="true">40</button><button type="button" data-v="45" aria-pressed="false">45</button></div></div>
-      <div class="barras">
-        <div class="b-linha"><span>Treino tradicional (1h30)</span><div class="b-trilho"><i class="b-trad" id="bTrad"></i></div><b id="tTrad">0h</b></div>
-        <div class="b-linha"><span>Treino curto com o Diego</span><div class="b-trilho"><i class="b-proj" id="bProj"></i></div><b id="tProj">0h</b></div>
+      <div class="eyebrow" style="margin:0">O desafio</div>
+      <h2>Falta de tempo <span class="hl">não é mais desculpa</span></h2>
+      <p class="sub" style="margin:0">Em 30 segundos o Diego explica como funciona a consultoria: treino curto, acompanhamento de perto e opção com nutricionista para você parar de adiar.</p>
+      <div class="v-checks">
+        <span>Treinos curtos</span><span>Opção com nutricionista</span><span>Online, todo o Brasil</span>
       </div>
-      <p class="sim-res" id="simRes" aria-live="polite"></p>
+      <div class="btns"><a class="btn btn-am" href="#oferta">Quero entrar no desafio</a></div>
     </div>
   </div>
 </section>
 
-<section id="mitos" style="background:#121317">
-  <div class="wrap">
+<section id="quiz" style="background:linear-gradient(180deg,var(--chao),#121317)">
+  <div class="wrap narrow">
     <div class="head rv">
-      <div class="eyebrow">Mito ou verdade</div>
-      <h2>Toque no card e <span class="hl">descubra</span></h2>
+      <div class="eyebrow">Teste de 30 segundos</div>
+      <h2>Descubra o seu <span class="hl">ponto de partida</span></h2>
+      <p class="sub">Responda 3 perguntas. O resultado vai junto na sua mensagem para o Diego.</p>
     </div>
-    <div class="mitos">
-      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Para emagrecer eu preciso treinar 2 horas por dia.</span><span class="f-verso"><em class="mito">Mito</em>Volume sem estratégia cansa e faz desistir. Treino curto, bem montado e com constância entrega mais.</span></button>
-      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Dá para perder gordura e ganhar músculo ao mesmo tempo.</span><span class="f-verso"><em class="verdade">Verdade</em>É a recomposição corporal. Com treino de força e alimentação certa, o corpo troca gordura por músculo.</span></button>
-      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Cortar quase tudo da dieta acelera o resultado.</span><span class="f-verso"><em class="mito">Mito</em>Corte radical derruba músculo e energia. O plano com nutricionista ajusta sem te deixar com fome.</span></button>
-      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Ter alguém acompanhando faz diferença no resultado.</span><span class="f-verso"><em class="verdade">Verdade</em>Acompanhamento cria compromisso e permite ajustar rápido o que não está funcionando.</span></button>
+    <div class="quiz rv" id="quizBox" aria-live="polite">
+      <div class="q-passo"><span id="qN">Pergunta 1 de 3</span><span>Consultoria Diego Lima</span></div>
+      <div class="q-barra"><i id="qBar"></i></div>
+      <div id="qArea"></div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="metodo">
   <div class="wrap">
     <div class="head rv">
-      <div class="eyebrow">O que você recebe</div>
-      <h2>Acompanhamento <span class="hl">completo</span>, onde você estiver</h2>
+      <div class="eyebrow">Como funciona</div>
+      <h2>Consultoria de <span class="hl">recomposição corporal</span></h2>
+      <p class="sub">Perder gordura e ganhar músculo ao mesmo tempo. Sem treino infinito, sem dieta de fome.</p>
     </div>
-    <div class="entregas">
-      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6v12M18 6v12M3 9v6M21 9v6M6 12h12"/></svg><div><b>Treinos no app</b><p>Montados pelo Diego para o seu tempo, nível e local de treino.</p></div></div>
-      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"/></svg><div><b>Opção com nutricionista</b><p>Acompanhamento com a nutricionista Thamires Weber, CRN 1-22412, para perder gordura sem perder músculo.</p></div></div>
-      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1-4a8 8 0 1 1 16-4z"/></svg><div><b>Suporte no WhatsApp</b><p>Dúvida sobre exercício ou alimentação? Você fala direto com a equipe.</p></div></div>
-      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><div><b>Avaliação física inclusa</b><p>Para medir o seu ponto de partida e acompanhar a evolução durante o plano.</p></div></div>
+    <div class="passos">
+      <article class="passo rv"><span class="n">1</span><h3>Avaliação</h3><p>Você conta sua rotina, objetivo, histórico e manda suas fotos. Tudo começa daqui.</p></article>
+      <article class="passo rv"><span class="n">2</span><h3>Treino curto</h3><p>Treino montado para o seu tempo e o seu nível, focado no que mais dá resultado.</p></article>
+      <article class="passo rv"><span class="n">3</span><h3>Alimentação</h3><p>No plano com nutricionista, a Thamires Weber monta uma alimentação que você consegue seguir, sem cortar o que mantém o músculo.</p></article>
+      <article class="passo rv"><span class="n">4</span><h3>Ajustes</h3><p>Acompanhamento durante todo o plano, com ajustes conforme o seu corpo responde.</p></article>
     </div>
   </div>
 </section>
 
 <section class="sobre" id="sobre">
   <div class="wrap sobre-grid">
-    <div class="foto-2 rv" role="img" aria-label="Espaço reservado para a foto do Diego na academia"><div><b>DL</b><small>foto do Diego na academia</small></div></div>
+    <div class="foto-2 rv"><img src="img/diego-poster.jpg" alt="Diego Lima na academia" width="360" height="640" loading="lazy"></div>
     <div class="stack rv">
       <div class="eyebrow" style="margin:0">Quem vai te acompanhar</div>
       <h2>Prazer, eu sou o <span style="color:#b07f00">Diego Lima</span></h2>
       <p>Personal trainer, CREF GO 7221. Há 12 anos tenho a minha própria academia em Inhumas, Goiás, e já acompanhei mais de 2.000 alunos.</p>
-      <p>Nesse tempo eu vi o mesmo erro se repetir: gente que treina muito, come pouco e não muda. O que funciona é treino curto e bem feito, alimentação que sustenta o músculo e alguém do lado cobrando e ajustando.</p>
-      <p>Foi isso que eu levei para o online. Agora você tem o mesmo acompanhamento dos meus alunos presenciais, de qualquer lugar do Brasil.</p>
+      <p>O que funciona é treino curto e bem feito, alimentação que sustenta o músculo e alguém do lado ajustando. Agora você tem o mesmo acompanhamento dos meus alunos presenciais, de qualquer lugar do Brasil.</p>
       <div class="nums">
         <div><b>+2.000</b><span>alunos acompanhados</span></div>
         <div><b>12</b><span>anos de academia</span></div>
-        <div><b>45</b><span>dias de projeto</span></div>
+        <div><b>100%</b><span>online, todo o Brasil</span></div>
       </div>
       <div class="academia"><img src="img/logo-superacao.jpg" alt="Logo da Superação Academia" width="56" height="56"><div><b>Superação Academia</b><span>Inhumas, GO · 12 anos de estrada</span></div></div>
     </div>
@@ -624,40 +554,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
       <div class="grupo g-treino rv">
         <div class="g-head"><div class="g-txt"><h3>Consultoria fitness</h3><p>Treino com o Diego</p><ul class="g-inclui"><li>Consultoria completa</li><li>Treinos no app</li><li>Avaliação física inclusa</li><li>Suporte e acompanhamento</li></ul></div></div>
         <div class="planos"><article class="plano"><div class="pl-topo"><h3>Trimestral</h3><span class="dur">3 meses</span></div><s class="de">De 3x R$ 179,90</s><span class="por">Por apenas</span><div class="parc"><small>3x</small><em>R$</em><b>141,68</b></div><p class="vista">ou <b>R$ 397,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 115</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Trimestral da Consultoria Fitness (3x de R$ 141,68 ou R$ 397,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o trimestral</a></article><article class="plano"><div class="pl-topo"><h3>Semestral</h3><span class="dur">6 meses</span></div><s class="de">De 6x R$ 141,68</s><span class="por">Por apenas</span><div class="parc"><small>6x</small><em>R$</em><b>112,00</b></div><p class="vista">ou <b>R$ 597,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 178</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Semestral da Consultoria Fitness (6x de R$ 112,00 ou R$ 597,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o semestral</a></article><article class="plano top"><span class="tag">Melhor custo</span><div class="pl-topo"><h3>Anual</h3><span class="dur">12 meses</span></div><s class="de">De 12x R$ 141,68</s><span class="por">Por apenas</span><div class="parc"><small>12x</small><em>R$</em><b>103,11</b></div><p class="vista">ou <b>R$ 997,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 463</span><a class="btn btn-am" data-msg="Oi, Diego! Vi sua página e quero o plano Anual da Consultoria Fitness (12x de R$ 103,11 ou R$ 997,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o anual</a></article></div>
+        <p class="arrasta">Arraste para ver os 3 planos</p>
       </div>
       <div class="grupo g-nutri rv">
         <div class="g-head"><div class="g-foto"><img src="equipe.jpg" alt="Nutricionista Thamires Weber e personal Diego Lima" width="586" height="490" loading="lazy"></div><div class="g-txt"><span class="g-selo">Mais completo</span><h3>Fitness + nutricional</h3><p>Diego + nutricionista Thamires Weber</p><ul class="g-inclui"><li>Tudo da consultoria fitness</li><li>Acompanhamento nutricional</li><li>Plano alimentar para o seu objetivo</li><li>Nutricionista CRN 1-22412</li></ul></div></div>
         <div class="planos"><article class="plano"><div class="pl-topo"><h3>Trimestral</h3><span class="dur">3 meses</span></div><s class="de">De 3x R$ 329,00</s><span class="por">Por apenas</span><div class="parc"><small>3x</small><em>R$</em><b>265,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 192</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Trimestral da Consultoria Fitness + Acompanhamento Nutricional (3x de R$ 265,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o trimestral</a></article><article class="plano"><div class="pl-topo"><h3>Semestral</h3><span class="dur">6 meses</span></div><s class="de">De 6x R$ 265,00</s><span class="por">Por apenas</span><div class="parc"><small>6x</small><em>R$</em><b>199,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 396</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Semestral da Consultoria Fitness + Acompanhamento Nutricional (6x de R$ 199,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o semestral</a></article><article class="plano top"><span class="tag">Melhor custo</span><div class="pl-topo"><h3>Anual</h3><span class="dur">12 meses</span></div><s class="de">De 12x R$ 265,00</s><span class="por">Por apenas</span><div class="parc"><small>12x</small><em>R$</em><b>149,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 1.392</span><a class="btn btn-am" data-msg="Oi, Diego! Vi sua página e quero o plano Anual da Consultoria Fitness + Acompanhamento Nutricional (12x de R$ 149,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o anual</a></article></div>
+        <p class="arrasta">Arraste para ver os 3 planos</p>
       </div>
     </div>
     <p class="aviso" style="text-align:center;margin-top:18px">Parcelas no cartão de crédito. À vista no Pix quando indicado.</p>
-  </div>
-</section>
-
-<section id="contato" style="background:#121317">
-  <div class="wrap form-grid">
-    <div class="stack rv">
-      <div class="eyebrow" style="margin:0">Fale com o Diego</div>
-      <h2>Ainda com dúvida? <span class="hl">Deixa seu contato</span></h2>
-      <p class="sub" style="margin:0">Preencha em 1 minuto. A equipe te chama no WhatsApp para explicar tudo e montar o seu início.</p>
-    </div>
-    <form id="form" class="rv" novalidate>
-      <div class="duas">
-        <div class="campo"><label for="fNome">Nome</label><input id="fNome" autocomplete="name" placeholder="Seu nome"></div>
-        <div class="campo"><label for="fTel">WhatsApp</label><input id="fTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(62) 99999-9999"></div>
-      </div>
-      <div class="duas">
-        <div class="campo"><label for="fObj">Objetivo</label>
-          <select id="fObj"><option value="">Escolha</option><option>Perder gordura</option><option>Ganhar massa muscular</option><option>Os dois: recomposição</option><option>Voltar a treinar</option></select></div>
-        <div class="campo"><label for="fTempo">Tempo por dia</label>
-          <select id="fTempo"><option value="">Escolha</option><option>Até 30 minutos</option><option>30 a 45 minutos</option><option>45 minutos a 1 hora</option><option>Mais de 1 hora</option></select></div>
-      </div>
-      <div class="campo"><label for="fCidade">Cidade</label><input id="fCidade" autocomplete="address-level2" placeholder="Cidade e estado"></div>
-      <span class="msg-erro" id="fErro" role="alert"></span>
-      <button class="btn btn-am" type="submit">Quero ser chamado</button>
-      <p class="ok" id="fOk">Recebido! Abrimos o WhatsApp com a sua mensagem. Se não abriu, toque no botão verde abaixo.</p>
-      <p class="lgpd">Ao enviar, você concorda em ser contatado pela equipe do Diego Lima sobre a consultoria. Seus dados não são compartilhados.</p>
-    </form>
   </div>
 </section>
 
@@ -671,24 +576,34 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
       <details><summary>Funciona para quem não tem tempo?</summary><p>Foi pensado para isso. Os treinos são curtos e montados para caber na sua rotina.</p></details>
       <details><summary>Preciso estar em Inhumas?</summary><p>Não. A consultoria é online e atende qualquer cidade do Brasil.</p></details>
       <details><summary>Serve para iniciante?</summary><p>Serve. O treino é montado de acordo com o seu nível e a sua experiência.</p></details>
-      <details><summary>Como funciona a parte da nutricionista?</summary><p>Nos planos com acompanhamento nutricional, a nutricionista Thamires Weber (CRN 1-22412) monta uma alimentação para o seu objetivo, para perder gordura sem perder massa muscular.</p></details>
       <details><summary>Em quanto tempo vejo resultado?</summary><p>Muita gente já percebe diferença nos primeiros 45 dias. O resultado depende da sua dedicação ao treino e à alimentação, por isso os planos mais longos rendem mais.</p></details>
-      <details><summary>Quais as formas de pagamento?</summary><p>Pix ou cartão. Só treino: R$ 397 (trimestral), R$ 597 (semestral) ou R$ 997 (anual) à vista, ou parcelado. Com nutricionista: 3x R$ 265, 6x R$ 199 ou 12x R$ 149.</p></details>
     </div>
   </div>
 </section>
 
-<section class="final">
-  <div class="wrap">
-    <div class="eyebrow">Daqui a 45 dias</div>
-    <h2>Você vai agradecer por ter <span class="hl">começado hoje</span></h2>
-    <p class="sub">Resultado não vem de motivação. Vem de decisão, método e acompanhamento.</p>
-    <div class="btns" style="justify-content:center">
-      <a class="btn btn-am" href="#oferta">Escolher meu plano</a>
-      <a class="btn btn-o" href="https://www.instagram.com/diegolimapersonall/" target="_blank" rel="noopener">Ver o Instagram</a>
+<section class="final" id="contato">
+  <div class="wrap form-grid" style="text-align:left">
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">Ainda com dúvida?</div>
+      <h2>Deixa seu contato que o <span class="hl">Diego te chama</span></h2>
+      <p class="sub" style="margin:0">São 3 campos. A equipe te chama no WhatsApp para indicar o plano certo para você.</p>
+      <div class="btns"><a class="btn btn-o" href="#oferta">Prefiro ver os planos</a></div>
     </div>
+    <form id="form" class="rv" novalidate>
+      <div class="duas">
+        <div class="campo"><label for="fNome">Nome</label><input id="fNome" autocomplete="name" placeholder="Seu nome"></div>
+        <div class="campo"><label for="fTel">WhatsApp</label><input id="fTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(62) 99999-9999"></div>
+      </div>
+      <div class="campo"><label for="fObj">Objetivo</label>
+          <select id="fObj"><option value="">Escolha</option><option>Perder gordura</option><option>Ganhar massa muscular</option><option>Os dois: recomposição</option><option>Voltar a treinar</option></select></div>
+      <span class="msg-erro" id="fErro" role="alert"></span>
+      <button class="btn btn-am" type="submit">Quero ser chamado</button>
+      <p class="ok" id="fOk">Recebido! Abrimos o WhatsApp com a sua mensagem. Se não abriu, toque no botão verde abaixo.</p>
+      <p class="lgpd">Ao enviar, você concorda em ser contatado pela equipe do Diego Lima sobre a consultoria. Seus dados não são compartilhados.</p>
+    </form>
   </div>
 </section>
+
 </main>
 
 <footer>
@@ -816,45 +731,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     e.preventDefault(); document.getElementById("desafio").scrollIntoView({behavior:"smooth", block:"center"}); setTimeout(tocar, 500);
   });
 
-  /* Jornada 45 dias */
-  var FASES = [
-    {ate:1, f:"Largada", t:"Avaliação e largada", x:"Você envia sua rotina, objetivo e fotos. Recebe treino e plano alimentar e faz o primeiro treino."},
-    {ate:7, f:"Semana 1", t:"Adaptação", x:"O corpo aprende os movimentos e a nova rotina. Foco em técnica, constância e seguir o plano alimentar."},
-    {ate:14, f:"Semana 2", t:"Ritmo criado", x:"Treinar vira hábito. A equipe acompanha as dúvidas e ajusta o que for preciso."},
-    {ate:21, f:"Semana 3", t:"Primeiro ajuste", x:"Revisão do treino e da alimentação de acordo com a sua resposta. Hora de aumentar a intensidade."},
-    {ate:30, f:"Semana 4", t:"Evolução visível", x:"Carga subindo, roupa vestindo diferente. Novas fotos para comparar com o começo."},
-    {ate:44, f:"Reta final", t:"Acelerar", x:"Treinos mais intensos e alimentação afinada para fechar os 45 dias no seu melhor."},
-    {ate:45, f:"Dia 45", t:"Antes e depois", x:"Fotos finais, comparação com o dia 1 e plano para manter e continuar evoluindo."}
-  ];
-  var jR = document.getElementById("jRange"), jCard = document.getElementById("jCard"), faseAtual = -1;
-  function jornada(){
-    var d = +jR.value, i = 0; while (FASES[i].ate < d) i++;
-    document.getElementById("jDia").textContent = d;
-    jR.style.background = "";
-    if (i !== faseAtual){ faseAtual = i; var f = FASES[i];
-      document.getElementById("jFase").textContent = f.f; document.getElementById("jTit").textContent = f.t; document.getElementById("jTxt").textContent = f.x;
-      jCard.classList.remove("troca"); void jCard.offsetWidth; jCard.classList.add("troca"); }
-  }
-  jR.addEventListener("input", jornada); jornada();
-
-  /* Simulador de tempo */
-  var sim = {dias:4, min:40};
-  function calc(){
-    var semanas = 45 / 7, trad = sim.dias * 90 * semanas / 60, proj = sim.dias * sim.min * semanas / 60, eco = trad - proj;
-    var h = function(n){ return n.toFixed(n < 10 ? 1 : 0).replace(".", ",") + "h"; };
-    document.getElementById("tTrad").textContent = h(trad); document.getElementById("tProj").textContent = h(proj);
-    document.getElementById("bTrad").style.width = "100%"; document.getElementById("bProj").style.width = (proj / trad * 100) + "%";
-    document.getElementById("simRes").innerHTML = "Em 45 dias você economiza <b>" + h(eco) + "</b> e treina só <b>" + Math.round(sim.min * sim.dias / 7) + " min por dia</b> em média.";
-  }
-  document.querySelectorAll(".chips").forEach(function(g){
-    var bs = Array.prototype.slice.call(g.querySelectorAll("button"));
-    bs.forEach(function(b){ b.addEventListener("click", function(){ bs.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); }); sim[g.dataset.grupo] = +b.dataset.v; calc(); }); });
-  });
-  calc();
-
-  /* Mito ou verdade */
-  document.querySelectorAll(".flip").forEach(function(f){ f.addEventListener("click", function(){ f.setAttribute("aria-pressed", f.getAttribute("aria-pressed") === "true" ? "false" : "true"); }); });
-
   /* Botões de plano */
   document.querySelectorAll("[data-msg]").forEach(function(a){ a.href = wa(a.getAttribute("data-msg")); });
   var fotoEq = document.querySelector(".g-foto img");
@@ -876,7 +752,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     if (!F.obj.value){ erro.push("o seu objetivo"); F.obj.closest(".campo").classList.add("erro"); }
     if (erro.length){ err.textContent = "Falta preencher " + erro.join(", ") + "."; return; }
     err.textContent = "";
-    var d = {origem:"formulario", nome:F.nome.value.trim(), whatsapp:F.tel.value, objetivo:F.obj.value, tempo:F.tempo.value, cidade:F.cidade.value.trim()};
+    var d = {origem:"formulario", nome:F.nome.value.trim(), whatsapp:F.tel.value, objetivo:F.obj.value, tempo:F.tempo ? F.tempo.value : "", cidade:F.cidade ? F.cidade.value.trim() : ""};
     salvaLead(d);
     var t = "Oi, Diego! Sou " + d.nome + (d.cidade ? ", de " + d.cidade : "") + ".\nObjetivo: " + d.objetivo + (d.tempo ? "\nTempo por dia: " + d.tempo : "") + "\nQuero saber mais sobre os planos da consultoria.";
     var ok = document.getElementById("fOk"); ok.classList.add("on");
