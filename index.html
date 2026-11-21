@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diego Lima Personal | Projeto 45 Dias</title>
+<meta name="description" content="Consultoria online de recomposição corporal com o personal Diego Lima. Menos gordura, mais músculo, treinos curtos e acompanhamento com nutricionista.">
+<meta name="theme-color" content="#0d0e10">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diego Lima Personal | Projeto 45 Dias">
+<meta property="og:description" content="Menos gordura. Mais músculo. Em 45 dias. Personal e nutricionista por 12x de R$ 19,90.">
+<meta property="og:image" content="https://diego-lima-personal.vercel.app/img/og.jpg">
+<meta property="og:url" content="https://diego-lima-personal.vercel.app/">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: arena escura com faixas de destaque em amarelo, headlines condensadas como placar de treino, coluna única no celular, WhatsApp fixo após o topo */
+:root{
+  --chao:#0d0e10;        /* fundo principal */
+  --chao-2:#16181c;      /* cartões */
+  --chao-3:#20232a;      /* hover e bordas fortes */
+  --giz:#f2f0ea;         /* texto principal */
+  --cinza:#a3a39c;       /* texto secundário */
+  --amarelo:#ffc21a;     /* acento, igual ao DEPOIS das fotos */
+  --amarelo-esc:#e0a800;
+  --azul:#2f8fd0;        /* azul da academia, uso pontual */
+  --linha:rgba(242,240,234,.12);
+  --zap:#1fa855;
+  --f-display:"Anton","Impact","Arial Narrow",sans-serif;
+  --f-cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-corpo:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+:root{padding-top:env(safe-area-inset-top,0px)}
+html{scroll-behavior:smooth}
+body{background:var(--chao);color:var(--giz);font-family:var(--f-corpo);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--chao)}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.narrow{max-width:780px}
+section{padding-block:72px;position:relative}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1,h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.98}
+h1{font-size:clamp(2.7rem,12vw,5.6rem)}
+h2{font-size:clamp(2rem,8vw,3.6rem)}
+h3{font-family:var(--f-cond);font-weight:700;font-size:1.45rem;text-transform:uppercase;letter-spacing:.01em;line-height:1.1}
+p{margin:0;max-width:62ch}
+.hl{color:var(--amarelo)}
+.marca-texto{background:var(--amarelo);color:var(--chao);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-cond);font-weight:700;font-size:.92rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo);margin-bottom:14px}
+.eyebrow::before{content:"";width:22px;height:3px;background:var(--amarelo)}
+.sub{color:var(--cinza);font-size:1.08rem;margin-top:14px}
+.head{margin-bottom:34px}
+.stack{display:flex;flex-direction:column;gap:16px}
+.rv{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .rv:not(.on){transform:translateY(18px)}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:14px 26px;border-radius:10px;border:0;cursor:pointer;font-family:var(--f-cond);font-weight:700;font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;text-align:center;transition:transform .15s,background .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.98)}
+.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--amarelo);outline-offset:3px}
+.btn-am{background:var(--amarelo);color:var(--chao);box-shadow:0 12px 30px -12px rgba(255,194,26,.6)}
+.btn-am:hover{background:#ffd14d}
+.btn-zap{background:var(--zap);color:#fff}
+.btn-o{background:transparent;color:var(--giz);box-shadow:inset 0 0 0 2px var(--linha)}
+.btn-o:hover{box-shadow:inset 0 0 0 2px var(--giz)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.ico{width:22px;height:22px;flex:none}
+
+/* Navegação */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(13,14,16,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo i{width:40px;height:40px;border-radius:9px;background:var(--amarelo);color:var(--chao);display:grid;place-items:center;font-family:var(--f-display);font-style:normal;font-size:1.2rem}
+.logo b{display:block;font-family:var(--f-cond);font-weight:700;font-size:1.15rem;letter-spacing:.04em;line-height:1;text-transform:uppercase}
+.logo span{display:block;font-size:.72rem;color:var(--cinza);letter-spacing:.1em;text-transform:uppercase}
+.menu{display:none;gap:24px;font-family:var(--f-cond);font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+.menu a{text-decoration:none;color:var(--cinza)}
+.menu a:hover{color:var(--giz)}
+.nav-cta{min-height:44px;padding:8px 16px;font-size:1rem}
+@media (min-width:920px){.menu{display:flex}}
+
+/* Hero */
+.hero{padding-block:36px 56px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-20%;top:-30%;width:760px;height:760px;background:radial-gradient(circle,rgba(255,194,26,.14),transparent 62%);pointer-events:none}
+.hero-grid{display:grid;gap:34px;position:relative}
+.tag-cref{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--cinza);border:1px solid var(--linha);border-radius:999px;padding:6px 12px;align-self:flex-start}
+.tag-cref i{width:8px;height:8px;border-radius:50%;background:var(--zap);box-shadow:0 0 0 4px rgba(31,168,85,.2)}
+.hero .lead{font-size:1.15rem;color:#d4d2cb}
+.placar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.placar div{border-left:3px solid var(--amarelo);padding:4px 0 4px 12px;min-width:0}
+.placar b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(1.7rem,7vw,2.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.placar span{display:block;font-size:.8rem;color:var(--cinza);line-height:1.3;margin-top:4px}
+.foto-diego{position:relative;max-width:440px;width:100%;margin:0 auto}
+.foto-diego .quadro{aspect-ratio:4/5;max-width:100%;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#2a2d34,#121317);border:1px solid var(--linha);display:grid;place-items:center;text-align:center;position:relative}
+.foto-diego .quadro::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 2px,transparent 2px 14px)}
+.foto-diego .quadro b{font-family:var(--f-display);font-size:6rem;font-weight:400;color:rgba(255,194,26,.85);line-height:1;position:relative}
+.foto-diego .quadro small{display:block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza);position:relative;margin-top:8px}
+.carimbo{position:absolute;left:-8px;bottom:22px;background:var(--amarelo);color:var(--chao);border-radius:12px;padding:12px 16px;font-family:var(--f-cond);font-weight:700;text-transform:uppercase;line-height:1.05;box-shadow:0 18px 30px -14px rgba(0,0,0,.7);transform:rotate(-3deg)}
+.carimbo b{display:block;font-family:var(--f-display);font-weight:400;font-size:2rem}
+@media (min-width:920px){.hero{padding-block:72px 96px}.hero-grid{grid-template-columns:1.15fr .85fr;align-items:center;gap:56px}.carimbo{left:-30px}}
+
+/* Faixa */
+.faixa{background:var(--amarelo);color:var(--chao);padding-block:14px;overflow:hidden;white-space:nowrap}
+.faixa .trilho-f{display:inline-flex;gap:34px;animation:corre 26s linear infinite;font-family:var(--f-display);font-size:1.4rem;text-transform:uppercase}
+.faixa span::after{content:"✦";margin-left:34px;font-size:1rem;vertical-align:middle}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* Dores */
+.dores{display:grid;gap:12px}
+.dor{background:var(--chao-2);border:1px solid var(--linha);border-radius:16px;padding:22px;display:flex;gap:16px;align-items:flex-start}
+.dor .x{flex:none;width:36px;height:36px;border-radius:50%;background:rgba(255,194,26,.12);color:var(--amarelo);display:grid;place-items:center;font-weight:700}
+.dor p{color:var(--cinza);font-size:.98rem;margin-top:4px}
+@media (min-width:760px){.dores{grid-template-columns:repeat(3,1fr)}.dor{flex-direction:column}}
+.virada{margin-top:30px;font-family:var(--f-cond);font-weight:700;font-size:clamp(1.4rem,5vw,1.9rem);text-transform:uppercase;line-height:1.15}
+
+/* Quiz */
+.quiz{background:var(--chao-2);border:1px solid var(--linha);border-radius:20px;padding:24px 20px;display:grid;gap:22px}
+.q-passo{font-family:var(--f-cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);font-size:.9rem;display:flex;justify-content:space-between;gap:10px}
+.q-barra{height:6px;border-radius:999px;background:var(--chao-3);overflow:hidden}
+.q-barra i{display:block;height:100%;background:var(--amarelo);width:33%;transition:width .35s}
+.q-perg{font-family:var(--f-cond);font-weight:700;font-size:1.6rem;text-transform:uppercase;line-height:1.1}
+.q-ops{display:grid;gap:10px}
+.q-op{text-align:left;min-height:56px;padding:14px 16px;border-radius:12px;border:1px solid var(--linha);background:var(--chao);color:var(--giz);font:500 1.02rem var(--f-corpo);cursor:pointer;display:flex;align-items:center;gap:12px;transition:border-color .15s,background .15s}
+.q-op:hover{border-color:var(--amarelo)}
+.q-op span{flex:none;width:30px;height:30px;border-radius:8px;background:var(--chao-3);display:grid;place-items:center;font-family:var(--f-cond);font-weight:700;color:var(--amarelo)}
+.q-res{display:grid;gap:14px}
+.q-res .selo{align-self:flex-start;justify-self:start;background:var(--amarelo);color:var(--chao);font-family:var(--f-cond);font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:6px 12px;border-radius:8px;font-size:.9rem}
+.q-res ul{margin:0;padding-left:20px;color:#d4d2cb}
+.q-volta{background:none;border:0;color:var(--cinza);text-decoration:underline;cursor:pointer;font:500 .95rem var(--f-corpo);justify-self:start;padding:6px 0}
+@media (min-width:700px){.q-ops{grid-template-columns:1fr 1fr}.quiz{padding:34px}}
+
+/* Método */
+.passos{display:grid;gap:14px;counter-reset:p}
+.passo{position:relative;background:var(--chao-2);border:1px solid var(--linha);border-radius:16px;padding:24px 22px 22px 22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.passo .n{font-family:var(--f-display);font-size:3rem;line-height:.9;color:var(--amarelo)}
+.passo p{color:var(--cinza);font-size:.98rem}
+@media (min-width:760px){.passos{grid-template-columns:repeat(4,1fr)}}
+
+/* Resultados */
+.res-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.res-tabs button{min-height:46px;padding:8px 18px;border-radius:10px;border:1px solid var(--linha);background:transparent;color:var(--cinza);font:700 1rem var(--f-cond);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.res-tabs button[aria-pressed="true"]{background:var(--amarelo);color:var(--chao);border-color:var(--amarelo)}
+.res-grid{display:grid;gap:22px;align-items:center}
+@media (min-width:860px){.res-grid{grid-template-columns:.9fr 1.1fr;gap:48px}}
+.comp{position:relative;max-width:460px;width:100%;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--linha);aspect-ratio:var(--ar,760/827);touch-action:pan-y;user-select:none;background:var(--chao-2)}
+.comp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.comp .dep{clip-path:inset(0 0 0 var(--x,50%))}
+.comp .linha-c{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;margin-left:-1.5px;background:var(--amarelo);pointer-events:none}
+.comp .alca{position:absolute;top:50%;left:var(--x,50%);width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:var(--amarelo);color:var(--chao);display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.5);pointer-events:none;font-weight:700}
+.comp .rot{position:absolute;top:12px;font-family:var(--f-cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;padding:5px 10px;border-radius:6px;pointer-events:none}
+.comp .rot.a{left:12px;background:rgba(13,14,16,.8);color:var(--giz)}
+.comp .rot.d{right:12px;background:var(--amarelo);color:var(--chao)}
+.comp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.comp-dica{text-align:center;font-size:.85rem;color:var(--cinza);margin-top:10px}
+.caso h3{font-size:1.9rem}
+.caso .dados{display:flex;flex-wrap:wrap;gap:8px}
+.caso .dados span{border:1px solid var(--linha);border-radius:8px;padding:6px 12px;font-size:.9rem;color:#d4d2cb}
+.aviso{font-size:.78rem;color:var(--cinza);opacity:.8;margin-top:6px}
+
+/* Entregas */
+.entregas{display:grid;gap:12px}
+.ent{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:14px;background:var(--chao-2);border:1px solid var(--linha)}
+.ent svg{flex:none;width:28px;height:28px;color:var(--amarelo)}
+.ent b{display:block;font-family:var(--f-cond);font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em}
+.ent p{color:var(--cinza);font-size:.95rem}
+@media (min-width:760px){.entregas{grid-template-columns:1fr 1fr}}
+
+/* Sobre */
+.sobre{background:var(--giz);color:var(--chao)}
+.sobre .eyebrow{color:#7a5b00}.sobre .eyebrow::before{background:#7a5b00}
+.sobre .sub{color:#4b4a45}
+.sobre-grid{display:grid;gap:30px;align-items:center}
+@media (min-width:860px){.sobre-grid{grid-template-columns:.8fr 1.2fr;gap:56px}}
+.foto-2{aspect-ratio:1;max-width:100%;border-radius:20px;background:linear-gradient(160deg,#d9d6cc,#bdb9ad);display:grid;place-items:center;text-align:center}
+.foto-2 b{font-family:var(--f-display);font-weight:400;font-size:5rem;color:var(--chao);opacity:.75;line-height:1}
+.foto-2 small{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#4b4a45;margin-top:6px}
+.academia{display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:12px 16px;border:1px solid rgba(0,0,0,.08);align-self:flex-start}
+.academia img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.academia b{display:block;font-family:var(--f-cond);font-size:1.1rem;text-transform:uppercase;line-height:1.1}
+.academia span{font-size:.85rem;color:#4b4a45}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.nums div{background:#fff;border-radius:12px;padding:14px 12px;border:1px solid rgba(0,0,0,.08);min-width:0}
+.nums b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.9rem;line-height:1}
+.nums span{display:block;font-size:.8rem;color:#4b4a45;line-height:1.3;margin-top:4px}
+
+/* Oferta */
+.oferta{display:grid;gap:22px;align-items:center}
+@media (min-width:860px){.oferta{grid-template-columns:1fr 1fr;gap:48px}}
+.card-preco{background:var(--chao-2);border:2px solid var(--amarelo);border-radius:22px;padding:28px 22px;display:flex;flex-direction:column;gap:14px;position:relative;box-shadow:0 30px 60px -30px rgba(255,194,26,.35)}
+.card-preco .tag{position:absolute;top:-14px;left:22px;background:var(--amarelo);color:var(--chao);font-family:var(--f-cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;padding:6px 12px;border-radius:8px}
+.card-preco h3{font-size:1.8rem}
+.de{color:var(--cinza);text-decoration:line-through;text-decoration-color:var(--amarelo);font-size:1.05rem}
+.por{font-family:var(--f-cond);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--giz);font-size:1rem}
+.parc{display:flex;align-items:flex-end;gap:8px;line-height:1}
+.parc small{font-family:var(--f-cond);font-weight:700;font-size:1.6rem;color:var(--giz);padding-bottom:10px}
+.parc b{font-family:var(--f-display);font-weight:400;font-size:clamp(4rem,17vw,5.4rem);color:var(--amarelo);font-variant-numeric:tabular-nums}
+.avista{font-size:1.05rem;color:#d4d2cb}
+.avista b{color:var(--giz)}
+.lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.lista li{padding:10px 0 10px 32px;border-bottom:1px solid var(--linha);position:relative;font-size:1rem}
+.lista li:last-child{border-bottom:0}
+.lista li::before{content:"";position:absolute;left:2px;top:13px;width:20px;height:20px;border-radius:6px;background:var(--amarelo)}
+.lista li::after{content:"";position:absolute;left:8px;top:18px;width:8px;height:5px;border-left:2.5px solid var(--chao);border-bottom:2.5px solid var(--chao);transform:rotate(-45deg)}
+.seguro{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.85rem;color:var(--cinza)}
+
+/* Formulário */
+.form-grid{display:grid;gap:28px}
+@media (min-width:860px){.form-grid{grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}}
+form{background:var(--chao-2);border:1px solid var(--linha);border-radius:20px;padding:24px 20px;display:grid;gap:14px}
+.campo{display:flex;flex-direction:column;gap:6px;min-width:0}
+.campo label{font-family:var(--f-cond);font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:var(--cinza)}
+.campo input,.campo select{width:100%;min-height:52px;border-radius:10px;border:1px solid var(--linha);background:var(--chao);color:var(--giz);font:400 1rem var(--f-corpo);padding:12px 14px}
+.campo input:focus,.campo select:focus{outline:none;border-color:var(--amarelo)}
+.campo.erro input,.campo.erro select{border-color:#ff7a59}
+.duas{display:grid;gap:14px}
+@media (min-width:560px){.duas{grid-template-columns:1fr 1fr}}
+.lgpd{font-size:.8rem;color:var(--cinza)}
+.msg-erro{font-size:.88rem;color:#ff9b80;min-height:1.2em}
+.ok{display:none;background:rgba(31,168,85,.12);border:1px solid rgba(31,168,85,.5);border-radius:10px;padding:12px 14px;font-size:.92rem}
+.ok.on{display:block}
+@media (min-width:860px){form{padding:32px}}
+
+/* FAQ */
+.faq details{border-bottom:1px solid var(--linha)}
+.faq details:first-child{border-top:1px solid var(--linha)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 46px 20px 0;font-family:var(--f-cond);font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:8px;background:var(--chao-3);color:var(--amarelo);display:grid;place-items:center;font-size:1.3rem;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--cinza)}
+
+/* Final */
+.final{text-align:center;overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;top:-40%;width:800px;height:800px;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,194,26,.14),transparent 60%);pointer-events:none}
+.final .wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:20px}
+.final p{margin-inline:auto}
+footer{border-top:1px solid var(--linha);padding-block:26px calc(110px + env(safe-area-inset-bottom,0px));font-size:.88rem;color:var(--cinza)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+
+/* Barra fixa */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(13,14,16,0),rgba(13,14,16,.96) 35%);transition:transform .3s}
+.barra .btn{width:100%;max-width:520px;margin:0 auto;display:flex}
+.barra.hide{transform:translateY(110%)}
+.progresso{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:0;background:var(--amarelo);z-index:61}
+/* Hero foto e chip */
+.foto-diego .quadro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.foto-diego .quadro::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,14,16,.75))}
+.play-chip{position:absolute;right:-6px;top:22px;z-index:2;display:inline-flex;align-items:center;gap:10px;background:rgba(13,14,16,.88);border:1px solid var(--linha);color:var(--giz);border-radius:999px;padding:8px 14px 8px 8px;text-decoration:none;font-family:var(--f-cond);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.95rem;backdrop-filter:blur(6px)}
+.pc-ico{width:32px;height:32px;border-radius:50%;background:var(--amarelo);color:var(--chao);display:grid;place-items:center;animation:pulso 2s infinite}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(255,194,26,.6)}100%{box-shadow:0 0 0 14px rgba(255,194,26,0)}}
+@media (min-width:920px){.play-chip{right:-26px}}
+/* Vídeo */
+.desafio-grid{display:grid;gap:30px;align-items:center}
+@media (min-width:860px){.desafio-grid{grid-template-columns:.75fr 1.25fr;gap:56px}}
+.video-box{position:relative;width:100%;max-width:340px;margin:0 auto;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#000;border:1px solid var(--linha);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.video-box video{width:100%;height:100%;object-fit:cover;display:block}
+.v-play{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;border:0;background:var(--amarelo);color:var(--chao);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 14px rgba(255,194,26,.22);transition:transform .2s}
+.v-play:hover{transform:scale(1.06)}
+.v-play svg{margin-left:5px}
+.video-box.tocando .v-play{display:none}
+.v-barra{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.15)}
+.v-barra i{display:block;height:100%;width:0;background:var(--amarelo)}
+.v-som{position:absolute;inset:0;background:transparent;border:0;color:transparent;cursor:pointer}
+.v-checks{display:flex;flex-wrap:wrap;gap:8px}
+.v-checks span{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--linha);border-radius:8px;padding:7px 12px;font-size:.95rem}
+.v-checks span::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--amarelo)}
+/* Jornada */
+.jornada{background:var(--chao-2);border:1px solid var(--linha);border-radius:20px;padding:24px 20px;display:grid;gap:16px}
+.j-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.j-dia{font-family:var(--f-cond);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cinza)}
+.j-dia b{font-family:var(--f-display);font-weight:400;font-size:3.4rem;color:var(--amarelo);line-height:.9;margin-left:6px;font-variant-numeric:tabular-nums}
+.j-fase{background:var(--amarelo);color:var(--chao);font-family:var(--f-cond);font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:6px 12px;border-radius:8px;font-size:.9rem}
+#jRange,.sim input{width:100%;accent-color:var(--amarelo);height:32px;cursor:pointer}
+.j-marcos{display:flex;justify-content:space-between;font-size:.8rem;color:var(--cinza);font-variant-numeric:tabular-nums;margin-top:-8px}
+.j-card{border-top:1px solid var(--linha);padding-top:16px;display:grid;gap:6px}
+.j-card p{color:#d4d2cb}
+.j-card.troca{animation:troca .3s ease}
+@keyframes troca{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (min-width:700px){.jornada{padding:32px}}
+/* Simulador */
+.sim-grid{display:grid;gap:28px;align-items:center}
+@media (min-width:860px){.sim-grid{grid-template-columns:.9fr 1.1fr;gap:56px}}
+.sim{background:var(--chao-2);border:1px solid var(--linha);border-radius:20px;padding:24px 20px;display:grid;gap:18px}
+.sim-linha{display:grid;gap:8px}
+.sim-rot{font-family:var(--f-cond);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cinza);font-size:.95rem}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.chips button{min-height:50px;border-radius:10px;border:1px solid var(--linha);background:var(--chao);color:var(--giz);font:400 1.5rem var(--f-display);cursor:pointer;transition:.15s}
+.chips button[aria-pressed="true"]{background:var(--amarelo);color:var(--chao);border-color:var(--amarelo)}
+.barras{display:grid;gap:14px;margin-top:4px}
+.b-linha{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center}
+.b-linha span{grid-column:1/-1;font-size:.92rem;color:var(--cinza)}
+.b-trilho{height:16px;border-radius:6px;background:var(--chao);overflow:hidden}
+.b-trilho i{display:block;height:100%;border-radius:6px;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.b-trad{background:#4a4d55}
+.b-proj{background:var(--amarelo)}
+.b-linha b{font-family:var(--f-display);font-weight:400;font-size:1.5rem;min-width:3.4em;text-align:right;font-variant-numeric:tabular-nums}
+.sim-res{font-family:var(--f-cond);font-weight:700;font-size:1.35rem;text-transform:uppercase;line-height:1.2;border-top:1px solid var(--linha);padding-top:14px}
+.sim-res b{color:var(--amarelo)}
+@media (min-width:700px){.sim{padding:32px}}
+/* Mitos */
+.mitos{display:grid;gap:14px}
+@media (min-width:700px){.mitos{grid-template-columns:1fr 1fr}}
+.flip{position:relative;min-height:190px;border:0;padding:0;background:transparent;cursor:pointer;perspective:1000px;text-align:left;color:var(--giz);font:inherit}
+.flip span{position:absolute;inset:0;border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.f-frente{background:var(--chao-2);border:1px solid var(--linha);font-family:var(--f-cond);font-weight:700;font-size:1.45rem;text-transform:uppercase;line-height:1.15}
+.f-frente small{font-size:.85rem;letter-spacing:.14em;color:var(--amarelo)}
+.f-frente::after{content:"Toque para ver";position:absolute;right:18px;bottom:14px;font-family:var(--f-corpo);font-weight:500;text-transform:none;font-size:.8rem;color:var(--cinza)}
+.f-verso{background:var(--giz);color:var(--chao);transform:rotateY(180deg);font-size:1.02rem;line-height:1.45}
+.f-verso em{font-style:normal;align-self:flex-start;font-family:var(--f-display);font-size:1.6rem;text-transform:uppercase;padding:2px 10px;border-radius:6px}
+.f-verso .mito{background:#ff6b4a;color:#fff}
+.f-verso .verdade{background:var(--zap);color:#fff}
+.flip[aria-pressed="true"] .f-frente{transform:rotateY(-180deg)}
+.flip[aria-pressed="true"] .f-verso{transform:rotateY(0)}
+.flip:focus-visible{outline:3px solid var(--amarelo);outline-offset:4px;border-radius:18px}
+/* Pagamento */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:12px;background:var(--chao)}
+.pg button{min-height:44px;border-radius:9px;border:0;background:transparent;color:var(--cinza);font:700 1.05rem var(--f-cond);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.pg button[aria-pressed="true"]{background:var(--giz);color:var(--chao)}
+.dia{font-size:.95rem;color:var(--cinza);border-top:1px dashed var(--linha);padding-top:10px}
+.dia b{color:var(--amarelo)}
+.parc.troca{animation:troca .3s ease}
+@media (min-width:760px){section{padding-block:100px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js .rv:not(.on){transform:none}}
+</style>
+</head>
+<body>
+<div class="progresso" id="progresso" aria-hidden="true"></div>
+
+<nav aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="#topo"><i>DL</i><div><b>Diego Lima</b><span>Personal trainer</span></div></a>
+    <div class="menu">
+      <a href="#quiz">Teste</a><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#sobre">Sobre</a><a href="#oferta">Planos</a>
+    </div>
+    <a class="btn btn-am nav-cta" href="#oferta">Quero começar</a>
+  </div>
+</nav>
+
+<main id="topo">
+
+<header class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="stack" style="gap:20px">
+      <span class="tag-cref"><i></i>Consultoria online para todo o Brasil · CREF 7221/GO</span>
+      <h1>Menos gordura.<br><span class="hl">Mais músculo.</span><br>Em 45 dias.</h1>
+      <p class="lead">Treinos curtos, acompanhamento com personal e nutricionista e um plano que cabe na sua rotina. Para quem não tem tempo a perder e cansou de desculpa.</p>
+      <div class="btns">
+        <a class="btn btn-am" href="#oferta">Quero meu Projeto 45 Dias</a>
+        <a class="btn btn-o" href="#quiz">Fazer o teste grátis</a>
+      </div>
+      <div class="placar">
+        <div><b data-count="2000" data-pre="+" data-sep="1">+2.000</b><span>alunos acompanhados</span></div>
+        <div><b data-count="12" data-suf=" anos">12 anos</b><span>de academia própria</span></div>
+        <div><b data-count="45" data-suf=" dias">45 dias</b><span>de projeto</span></div>
+      </div>
+    </div>
+    <div class="foto-diego">
+      <div class="quadro"><img src="img/diego-hero.jpg" alt="Diego Lima na academia" width="360" height="450"></div>
+      <a class="play-chip" href="#desafio" id="heroPlay"><span class="pc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>Assista o Diego · 30s</a>
+      <div class="carimbo"><b>12x 19,90</b>Personal + nutri</div>
+    </div>
+  </div>
+</header>
+
+<div class="faixa" aria-hidden="true">
+  <div class="trilho-f">
+    <span>Menos gordura</span><span>Mais músculo</span><span>Treinos curtos</span><span>Personal + nutricionista</span><span>Sem desculpas</span>
+    <span>Menos gordura</span><span>Mais músculo</span><span>Treinos curtos</span><span>Personal + nutricionista</span><span>Sem desculpas</span>
+  </div>
+</div>
+
+
+<section id="desafio">
+  <div class="wrap desafio-grid">
+    <div class="video-box rv">
+      <video id="vid" src="video/desafio.mp4" poster="img/diego-poster.jpg" playsinline preload="metadata"></video>
+      <button type="button" class="v-play" id="vPlay" aria-label="Assistir ao vídeo do desafio"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+      <div class="v-barra" aria-hidden="true"><i id="vProg"></i></div>
+      <button type="button" class="v-som" id="vSom" hidden>Toque para pausar</button>
+    </div>
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">O desafio</div>
+      <h2>Falta de tempo <span class="hl">não é mais desculpa</span></h2>
+      <p class="sub" style="margin:0">Em 30 segundos o Diego explica como funciona o Projeto 45 Dias: treino curto, alimentação com nutricionista e acompanhamento de perto para você parar de adiar.</p>
+      <div class="v-checks">
+        <span>Treinos curtos</span><span>Personal + nutri</span><span>Online, todo o Brasil</span>
+      </div>
+      <div class="btns"><a class="btn btn-am" href="#oferta">Quero entrar no desafio</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Isso é com você?</div>
+      <h2>Você treina, faz dieta e o <span class="hl">espelho não muda?</span></h2>
+    </div>
+    <div class="dores">
+      <article class="dor rv"><span class="x">01</span><div><h3>Falta de tempo</h3><p>Treino de uma hora e meia não cabe na sua rotina. Aí você pula um dia, dois, e desiste.</p></div></article>
+      <article class="dor rv"><span class="x">02</span><div><h3>Dieta que tira o músculo</h3><p>Corta tudo, a balança desce um pouco e o corpo fica murcho. Depois volta tudo.</p></div></article>
+      <article class="dor rv"><span class="x">03</span><div><h3>Treino sem estratégia</h3><p>Copia treino da internet, faz o mesmo há meses e não sabe se está evoluindo.</p></div></article>
+    </div>
+    <p class="virada rv">O problema não é você. É fazer <span class="marca-texto">sozinho e sem método.</span></p>
+  </div>
+</section>
+
+<section id="quiz" style="background:linear-gradient(180deg,var(--chao),#121317)">
+  <div class="wrap narrow">
+    <div class="head rv">
+      <div class="eyebrow">Teste de 30 segundos</div>
+      <h2>Descubra o seu <span class="hl">ponto de partida</span></h2>
+      <p class="sub">Responda 3 perguntas. O resultado vai junto na sua mensagem para o Diego.</p>
+    </div>
+    <div class="quiz rv" id="quizBox" aria-live="polite">
+      <div class="q-passo"><span id="qN">Pergunta 1 de 3</span><span>Projeto 45 Dias</span></div>
+      <div class="q-barra"><i id="qBar"></i></div>
+      <div id="qArea"></div>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Como funciona</div>
+      <h2>Projeto 45 Dias: <span class="hl">recomposição corporal</span></h2>
+      <p class="sub">Perder gordura e ganhar músculo ao mesmo tempo. Sem treino infinito, sem dieta de fome.</p>
+    </div>
+    <div class="passos">
+      <article class="passo rv"><span class="n">1</span><h3>Avaliação</h3><p>Você conta sua rotina, objetivo, histórico e manda suas fotos. Tudo começa daqui.</p></article>
+      <article class="passo rv"><span class="n">2</span><h3>Treino curto</h3><p>Treino montado para o seu tempo e o seu nível, focado no que mais dá resultado.</p></article>
+      <article class="passo rv"><span class="n">3</span><h3>Plano alimentar</h3><p>Nutricionista monta uma alimentação que você consegue seguir, sem cortar o que mantém o músculo.</p></article>
+      <article class="passo rv"><span class="n">4</span><h3>Ajustes</h3><p>Acompanhamento até o fim dos 45 dias, com ajustes conforme o seu corpo responde.</p></article>
+    </div>
+  </div>
+</section>
+
+
+<section id="jornada" style="background:linear-gradient(180deg,var(--chao),#121317)">
+  <div class="wrap narrow">
+    <div class="head rv">
+      <div class="eyebrow">Sua jornada</div>
+      <h2>Arraste e veja os <span class="hl">seus 45 dias</span></h2>
+    </div>
+    <div class="jornada rv">
+      <div class="j-topo"><span class="j-dia">Dia <b id="jDia">1</b></span><span class="j-fase" id="jFase">Semana 1</span></div>
+      <input type="range" id="jRange" min="1" max="45" value="1" aria-label="Escolher o dia da jornada">
+      <div class="j-marcos" aria-hidden="true"><span>1</span><span>8</span><span>15</span><span>22</span><span>31</span><span>45</span></div>
+      <div class="j-card" id="jCard" aria-live="polite"><h3 id="jTit">Avaliação e largada</h3><p id="jTxt">Você envia sua rotina, objetivo e fotos. Recebe treino e plano alimentar e faz o primeiro treino.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="resultados" style="background:#121317">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Resultados reais</div>
+      <h2>Quem decidiu, <span class="hl">mudou</span></h2>
+      <p class="sub">Arraste a linha amarela para comparar o antes e o depois.</p>
+    </div>
+    <div class="res-tabs rv" role="group" aria-label="Escolher resultado">
+      <button type="button" aria-pressed="true" data-c="0">Aluno 1 · frente</button>
+      <button type="button" aria-pressed="false" data-c="1">Aluno 1 · costas</button>
+      <button type="button" aria-pressed="false" data-c="2">Aluno 2</button>
+    </div>
+    <div class="res-grid">
+      <div class="rv">
+        <div class="comp" id="comp">
+          <img id="cAntes" src="img/frente-antes.jpg" alt="Antes" width="760" height="827">
+          <img class="dep" id="cDepois" src="img/frente-depois.jpg" alt="Depois" width="760" height="827">
+          <span class="rot a">Antes</span><span class="rot d">Depois</span>
+          <span class="linha-c"></span><span class="alca">⇆</span>
+          <input type="range" min="0" max="100" value="50" id="cRange" aria-label="Comparar antes e depois">
+        </div>
+        <p class="comp-dica">Arraste para os lados</p>
+      </div>
+      <div class="caso stack rv" aria-live="polite">
+        <h3 id="cTit">Barriga e peitoral mais secos</h3>
+        <p class="sub" id="cTxt" style="margin:0">Redução visível de gordura na região abdominal e no peitoral, com ombros e braços mais definidos.</p>
+        <div class="dados" id="cDados"><span>Recomposição corporal</span><span>Treino + alimentação</span></div>
+        <a class="btn btn-am" href="#oferta" style="align-self:flex-start">Quero esse resultado</a>
+        <p class="aviso">Resultados individuais. Cada corpo responde de um jeito, conforme dedicação e rotina.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="tempo">
+  <div class="wrap sim-grid">
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">Simulador de tempo</div>
+      <h2>Quanto tempo <span class="hl">cabe na sua semana?</span></h2>
+      <p class="sub" style="margin:0">Escolha quantos dias e quantos minutos você consegue treinar. Compare com o treino tradicional de academia.</p>
+    </div>
+    <div class="sim rv">
+      <div class="sim-linha"><span class="sim-rot">Dias por semana</span><div class="chips" data-grupo="dias"><button type="button" data-v="3" aria-pressed="false">3</button><button type="button" data-v="4" aria-pressed="true">4</button><button type="button" data-v="5" aria-pressed="false">5</button><button type="button" data-v="6" aria-pressed="false">6</button></div></div>
+      <div class="sim-linha"><span class="sim-rot">Minutos por treino</span><div class="chips" data-grupo="min"><button type="button" data-v="20" aria-pressed="false">20</button><button type="button" data-v="30" aria-pressed="false">30</button><button type="button" data-v="40" aria-pressed="true">40</button><button type="button" data-v="45" aria-pressed="false">45</button></div></div>
+      <div class="barras">
+        <div class="b-linha"><span>Treino tradicional (1h30)</span><div class="b-trilho"><i class="b-trad" id="bTrad"></i></div><b id="tTrad">0h</b></div>
+        <div class="b-linha"><span>Projeto 45 Dias</span><div class="b-trilho"><i class="b-proj" id="bProj"></i></div><b id="tProj">0h</b></div>
+      </div>
+      <p class="sim-res" id="simRes" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section id="mitos" style="background:#121317">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Mito ou verdade</div>
+      <h2>Toque no card e <span class="hl">descubra</span></h2>
+    </div>
+    <div class="mitos">
+      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Para emagrecer eu preciso treinar 2 horas por dia.</span><span class="f-verso"><em class="mito">Mito</em>Volume sem estratégia cansa e faz desistir. Treino curto, bem montado e com constância entrega mais.</span></button>
+      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Dá para perder gordura e ganhar músculo ao mesmo tempo.</span><span class="f-verso"><em class="verdade">Verdade</em>É a recomposição corporal. Com treino de força e alimentação certa, o corpo troca gordura por músculo.</span></button>
+      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Cortar quase tudo da dieta acelera o resultado.</span><span class="f-verso"><em class="mito">Mito</em>Corte radical derruba músculo e energia. O plano com nutricionista ajusta sem te deixar com fome.</span></button>
+      <button type="button" class="flip rv" aria-pressed="false"><span class="f-frente"><small>Mito ou verdade?</small>Ter alguém acompanhando faz diferença no resultado.</span><span class="f-verso"><em class="verdade">Verdade</em>Acompanhamento cria compromisso e permite ajustar rápido o que não está funcionando.</span></button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">O que você recebe</div>
+      <h2>Acompanhamento <span class="hl">completo</span>, onde você estiver</h2>
+    </div>
+    <div class="entregas">
+      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6v12M18 6v12M3 9v6M21 9v6M6 12h12"/></svg><div><b>Treino personalizado</b><p>Montado pelo Diego para o seu tempo, nível e local de treino.</p></div></div>
+      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"/></svg><div><b>Plano com nutricionista</b><p>Alimentação pensada para perder gordura sem perder músculo.</p></div></div>
+      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1-4a8 8 0 1 1 16-4z"/></svg><div><b>Suporte no WhatsApp</b><p>Dúvida sobre exercício ou alimentação? Você fala direto com a equipe.</p></div></div>
+      <div class="ent rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><div><b>Ajustes no caminho</b><p>Acompanhamento da evolução e ajuste do plano durante os 45 dias.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="foto-2 rv" role="img" aria-label="Espaço reservado para a foto do Diego na academia"><div><b>DL</b><small>foto do Diego na academia</small></div></div>
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">Quem vai te acompanhar</div>
+      <h2>Prazer, eu sou o <span style="color:#b07f00">Diego Lima</span></h2>
+      <p>Personal trainer, CREF 7221/GO. Há 12 anos tenho a minha própria academia em Inhumas, Goiás, e já acompanhei mais de 2.000 alunos.</p>
+      <p>Nesse tempo eu vi o mesmo erro se repetir: gente que treina muito, come pouco e não muda. O que funciona é treino curto e bem feito, alimentação que sustenta o músculo e alguém do lado cobrando e ajustando.</p>
+      <p>Foi isso que eu levei para o online. Agora você tem o mesmo acompanhamento dos meus alunos presenciais, de qualquer lugar do Brasil.</p>
+      <div class="nums">
+        <div><b>+2.000</b><span>alunos acompanhados</span></div>
+        <div><b>12</b><span>anos de academia</span></div>
+        <div><b>45</b><span>dias de projeto</span></div>
+      </div>
+      <div class="academia"><img src="img/logo-superacao.jpg" alt="Logo da Superação Academia" width="56" height="56"><div><b>Superação Academia</b><span>Inhumas, GO · 12 anos de estrada</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="oferta">
+  <div class="wrap oferta">
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">Sua decisão</div>
+      <h2>A mudança começa com <span class="hl">uma decisão</span></h2>
+      <p class="sub" style="margin:0">Personal e nutricionista juntos costumam custar centenas de reais por mês. No Projeto 45 Dias você tem os dois, por menos que um lanche por mês.</p>
+      <ul class="lista">
+        <li>Avaliação inicial completa</li>
+        <li>Treino personalizado com treinos curtos</li>
+        <li>Plano alimentar com nutricionista</li>
+        <li>Suporte pelo WhatsApp</li>
+        <li>Ajustes durante os 45 dias</li>
+      </ul>
+    </div>
+    <div class="card-preco rv">
+      <span class="tag">Condição especial</span>
+      <h3>Projeto 45 Dias</h3>
+      <span class="de">De R$ 497,00</span>
+      <div class="pg" role="group" aria-label="Forma de pagamento"><button type="button" data-pg="cartao" aria-pressed="true">Cartão</button><button type="button" data-pg="pix" aria-pressed="false">Pix</button></div>
+      <span class="por">Por apenas</span>
+      <div class="parc" id="pgValor"><small>12x</small><b>19,90</b></div>
+      <p class="avista" id="pgObs">ou <b>R$ 197,00 à vista</b> no Pix</p>
+      <p class="dia" id="pgDia">Menos de <b>R$ 5,40 por dia</b> de projeto</p>
+      <a class="btn btn-zap" id="pgBtn" data-wa="plano" href="#" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#zap"/></svg>Quero garantir minha vaga</a>
+      <div class="seguro"><span>Pix ou cartão</span><span>Atendimento direto com o Diego</span><span>Todo o Brasil</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" style="background:#121317">
+  <div class="wrap form-grid">
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">Fale com o Diego</div>
+      <h2>Ainda com dúvida? <span class="hl">Deixa seu contato</span></h2>
+      <p class="sub" style="margin:0">Preencha em 1 minuto. A equipe te chama no WhatsApp para explicar tudo e montar o seu início.</p>
+    </div>
+    <form id="form" class="rv" novalidate>
+      <div class="duas">
+        <div class="campo"><label for="fNome">Nome</label><input id="fNome" autocomplete="name" placeholder="Seu nome"></div>
+        <div class="campo"><label for="fTel">WhatsApp</label><input id="fTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(62) 99999-9999"></div>
+      </div>
+      <div class="duas">
+        <div class="campo"><label for="fObj">Objetivo</label>
+          <select id="fObj"><option value="">Escolha</option><option>Perder gordura</option><option>Ganhar massa muscular</option><option>Os dois: recomposição</option><option>Voltar a treinar</option></select></div>
+        <div class="campo"><label for="fTempo">Tempo por dia</label>
+          <select id="fTempo"><option value="">Escolha</option><option>Até 30 minutos</option><option>30 a 45 minutos</option><option>45 minutos a 1 hora</option><option>Mais de 1 hora</option></select></div>
+      </div>
+      <div class="campo"><label for="fCidade">Cidade</label><input id="fCidade" autocomplete="address-level2" placeholder="Cidade e estado"></div>
+      <span class="msg-erro" id="fErro" role="alert"></span>
+      <button class="btn btn-am" type="submit">Quero ser chamado</button>
+      <p class="ok" id="fOk">Recebido! Abrimos o WhatsApp com a sua mensagem. Se não abriu, toque no botão verde abaixo.</p>
+      <p class="lgpd">Ao enviar, você concorda em ser contatado pela equipe do Diego Lima sobre a consultoria. Seus dados não são compartilhados.</p>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <div class="head rv">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Tira suas <span class="hl">dúvidas</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Funciona para quem não tem tempo?</summary><p>Foi pensado para isso. Os treinos são curtos e montados para caber na sua rotina.</p></details>
+      <details><summary>Preciso estar em Inhumas?</summary><p>Não. A consultoria é online e atende qualquer cidade do Brasil.</p></details>
+      <details><summary>Serve para iniciante?</summary><p>Serve. O treino é montado de acordo com o seu nível e a sua experiência.</p></details>
+      <details><summary>Como funciona a parte da nutricionista?</summary><p>Você recebe um plano alimentar feito para o seu objetivo, para perder gordura sem perder massa muscular.</p></details>
+      <details><summary>Em quanto tempo vejo resultado?</summary><p>O projeto tem 45 dias, e muita gente já percebe diferença nas primeiras semanas. O resultado depende da sua dedicação ao treino e à alimentação.</p></details>
+      <details><summary>Quais as formas de pagamento?</summary><p>Pix à vista por R$ 197,00 ou cartão em até 12x de R$ 19,90.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="eyebrow">Daqui a 45 dias</div>
+    <h2>Você vai agradecer por ter <span class="hl">começado hoje</span></h2>
+    <p class="sub">Resultado não vem de motivação. Vem de decisão, método e acompanhamento.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn btn-am" href="#oferta">Começar meu Projeto 45 Dias</a>
+      <a class="btn btn-o" href="https://www.instagram.com/diegolimapersonall/" target="_blank" rel="noopener">Ver o Instagram</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Diego Lima Personal · CREF 7221/GO · Inhumas, GO</span>
+    <span>@diegolimapersonall · <span style="user-select:all">(62) 8450-4406</span></span>
+  </div>
+</footer>
+
+<div class="barra hide" id="barra">
+  <a class="btn btn-zap" data-wa="barra" href="#" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#zap"/></svg>Falar com o Diego no WhatsApp</a>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="zap" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2Z"/></symbol></svg>
+
+<script>
+(function(){
+  document.documentElement.classList.add("js");
+  var CONFIG = {
+    WHATSAPP: "556284504406",
+    SHEETS_URL: "" /* cole aqui o link do Apps Script da planilha de leads */
+  };
+  var wa = function(t){ return "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent(t); };
+  var MSG = {
+    plano: "Oi, Diego! Quero garantir minha vaga no Projeto 45 Dias por 12x de R$ 19,90. Como faço?",
+    pix: "Oi, Diego! Quero garantir minha vaga no Projeto 45 Dias por R$ 197 no Pix. Como faço?",
+    barra: "Oi, Diego! Vim pela sua página e quero saber mais sobre a consultoria."
+  };
+  document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = wa(MSG[a.dataset.wa] || MSG.barra); });
+
+  /* UTMs do anúncio */
+  var qs = new URLSearchParams(location.search), UTM = {};
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){ if (qs.get(k)) UTM[k] = qs.get(k); });
+  function salvaLead(d){
+    if (!CONFIG.SHEETS_URL) return;
+    var p = Object.assign({data:new Date().toISOString(), pagina:location.pathname}, UTM, d);
+    try { fetch(CONFIG.SHEETS_URL, {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain"}, body:JSON.stringify(p)}); } catch(e){}
+  }
+
+  /* Entrada suave, barra fixa e progresso */
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } }); }, {rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+    var barra = document.getElementById("barra");
+    new IntersectionObserver(function(es){ barra.classList.toggle("hide", es[0].isIntersecting); }).observe(document.getElementById("hero"));
+  } else { document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("on"); }); document.getElementById("barra").classList.remove("hide"); }
+  var prog = document.getElementById("progresso");
+  window.addEventListener("scroll", function(){ var h = document.documentElement; prog.style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100).toFixed(1) + "%"; }, {passive:true});
+
+  /* Quiz */
+  var Q = [
+    {p:"Qual é o seu objetivo principal?", o:["Perder gordura","Ganhar massa muscular","Os dois ao mesmo tempo","Voltar a treinar"]},
+    {p:"Quanto tempo você tem por dia?", o:["Até 30 minutos","30 a 45 minutos","45 minutos a 1 hora","Mais de 1 hora"]},
+    {p:"Como está sua rotina hoje?", o:["Parado há um tempo","Treino, mas sem resultado","Treino e faço dieta sozinho","Começo e sempre paro"]}
+  ];
+  var resp = [], area = document.getElementById("qArea"), qN = document.getElementById("qN"), qBar = document.getElementById("qBar");
+  function pergunta(i){
+    qN.textContent = "Pergunta " + (i+1) + " de 3"; qBar.style.width = ((i+1)/3*100) + "%";
+    var h = '<div class="stack" style="gap:16px"><div class="q-perg">' + Q[i].p + '</div><div class="q-ops">';
+    Q[i].o.forEach(function(op, j){ h += '<button type="button" class="q-op" data-j="' + j + '"><span>' + "ABCD"[j] + '</span>' + op + '</button>'; });
+    area.innerHTML = h + '</div></div>';
+    area.querySelectorAll(".q-op").forEach(function(b){ b.addEventListener("click", function(){ resp[i] = Q[i].o[+b.dataset.j]; if (i < 2) pergunta(i+1); else resultado(); }); });
+  }
+  function resultado(){
+    qN.textContent = "Seu resultado"; qBar.style.width = "100%";
+    var curto = /Até 30|30 a 45/.test(resp[1]);
+    var t = curto ? "Seu perfil: pouco tempo, alto foco" : "Seu perfil: pronto para acelerar";
+    var d = curto ? "Treinos curtos e bem montados resolvem o seu caso. O segredo é intensidade certa e uma alimentação que segure o músculo." : "Você tem tempo para treinar. Falta direção: treino com estratégia e alimentação ajustada para o seu objetivo.";
+    var msg = "Oi, Diego! Fiz o teste da sua página:\n• Objetivo: " + resp[0] + "\n• Tempo por dia: " + resp[1] + "\n• Rotina: " + resp[2] + "\n\nQuero saber como o Projeto 45 Dias pode me ajudar.";
+    area.innerHTML = '<div class="q-res"><span class="selo">' + t + '</span><p>' + d + '</p><ul><li>Objetivo: ' + resp[0] + '</li><li>Tempo: ' + resp[1] + '</li><li>Rotina: ' + resp[2] + '</li></ul>' +
+      '<a class="btn btn-zap" id="qZap" href="' + wa(msg) + '" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#zap"/></svg>Enviar meu resultado ao Diego</a>' +
+      '<button type="button" class="q-volta" id="qVolta">Refazer o teste</button></div>';
+    document.getElementById("qZap").addEventListener("click", function(){ salvaLead({origem:"quiz", objetivo:resp[0], tempo:resp[1], rotina:resp[2]}); });
+    document.getElementById("qVolta").addEventListener("click", function(){ resp = []; pergunta(0); });
+  }
+  pergunta(0);
+
+  /* Comparador antes e depois */
+  var CASOS = [
+    {a:"img/frente-antes.jpg", d:"img/frente-depois.jpg", ar:"760/827", t:"Barriga e peitoral mais secos", x:"Redução visível de gordura na região abdominal e no peitoral, com ombros e braços mais definidos.", tags:["Recomposição corporal","Treino + alimentação"]},
+    {a:"img/costas-antes.jpg", d:"img/costas-depois.jpg", ar:"760/827", t:"Costas definidas", x:"Menos gordura na lombar e nas laterais, com as costas mais largas e desenhadas.", tags:["Recomposição corporal","Mesmo aluno, de costas"]},
+    {a:"img/aluno-antes.jpg", d:"img/aluno-depois.jpg", ar:"600/958", t:"De 22% para 15% de gordura", x:"Aluno de 23 anos que reduziu 7 pontos percentuais de gordura, com abdômen e braços mais definidos.", tags:["23 anos","22% para 15% de gordura"]}
+  ];
+  var comp = document.getElementById("comp"), rg = document.getElementById("cRange");
+  rg.addEventListener("input", function(){ comp.style.setProperty("--x", rg.value + "%"); });
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".res-tabs button"));
+  tabs.forEach(function(b){ b.addEventListener("click", function(){
+    var c = CASOS[+b.dataset.c];
+    tabs.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
+    document.getElementById("cAntes").src = c.a; document.getElementById("cDepois").src = c.d;
+    comp.style.setProperty("--ar", c.ar); rg.value = 50; comp.style.setProperty("--x","50%");
+    document.getElementById("cTit").textContent = c.t; document.getElementById("cTxt").textContent = c.x;
+    document.getElementById("cDados").innerHTML = c.tags.map(function(s){ return "<span>" + s + "</span>"; }).join("");
+  }); });
+
+  /* Contadores */
+  var conts = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
+  function conta(el){
+    var alvo = +el.dataset.count, pre = el.dataset.pre || "", suf = el.dataset.suf || "", t0 = null;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    function fmt(n){ n = Math.round(n); return pre + (el.dataset.sep ? n.toLocaleString("pt-BR") : n) + suf; }
+    function f(t){ if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1400); el.textContent = fmt(alvo * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(f); }
+    requestAnimationFrame(f);
+  }
+  if ("IntersectionObserver" in window){
+    var ioc = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ conta(e.target); ioc.unobserve(e.target); } }); }, {threshold:.6});
+    conts.forEach(function(c){ ioc.observe(c); });
+  }
+
+  /* Vídeo */
+  var vid = document.getElementById("vid"), vbox = vid.parentNode, vPlay = document.getElementById("vPlay"), vSom = document.getElementById("vSom"), vProg = document.getElementById("vProg");
+  function tocar(){ vid.muted = false; var pr = vid.play(); if (pr && pr.catch) pr.catch(function(){}); }
+  vPlay.addEventListener("click", tocar);
+  vSom.addEventListener("click", function(){ if (vid.paused) tocar(); else vid.pause(); });
+  vid.addEventListener("play", function(){ vbox.classList.add("tocando"); vSom.hidden = false; });
+  vid.addEventListener("pause", function(){ vbox.classList.remove("tocando"); vSom.hidden = true; });
+  vid.addEventListener("ended", function(){ vbox.classList.remove("tocando"); vSom.hidden = true; vid.currentTime = 0; });
+  vid.addEventListener("timeupdate", function(){ if (vid.duration) vProg.style.width = (vid.currentTime / vid.duration * 100) + "%"; });
+  document.getElementById("heroPlay").addEventListener("click", function(e){
+    e.preventDefault(); document.getElementById("desafio").scrollIntoView({behavior:"smooth", block:"center"}); setTimeout(tocar, 500);
+  });
+
+  /* Jornada 45 dias */
+  var FASES = [
+    {ate:1, f:"Largada", t:"Avaliação e largada", x:"Você envia sua rotina, objetivo e fotos. Recebe treino e plano alimentar e faz o primeiro treino."},
+    {ate:7, f:"Semana 1", t:"Adaptação", x:"O corpo aprende os movimentos e a nova rotina. Foco em técnica, constância e seguir o plano alimentar."},
+    {ate:14, f:"Semana 2", t:"Ritmo criado", x:"Treinar vira hábito. A equipe acompanha as dúvidas e ajusta o que for preciso."},
+    {ate:21, f:"Semana 3", t:"Primeiro ajuste", x:"Revisão do treino e da alimentação de acordo com a sua resposta. Hora de aumentar a intensidade."},
+    {ate:30, f:"Semana 4", t:"Evolução visível", x:"Carga subindo, roupa vestindo diferente. Novas fotos para comparar com o começo."},
+    {ate:44, f:"Reta final", t:"Acelerar", x:"Treinos mais intensos e alimentação afinada para fechar os 45 dias no seu melhor."},
+    {ate:45, f:"Dia 45", t:"Antes e depois", x:"Fotos finais, comparação com o dia 1 e plano para manter e continuar evoluindo."}
+  ];
+  var jR = document.getElementById("jRange"), jCard = document.getElementById("jCard"), faseAtual = -1;
+  function jornada(){
+    var d = +jR.value, i = 0; while (FASES[i].ate < d) i++;
+    document.getElementById("jDia").textContent = d;
+    jR.style.background = "";
+    if (i !== faseAtual){ faseAtual = i; var f = FASES[i];
+      document.getElementById("jFase").textContent = f.f; document.getElementById("jTit").textContent = f.t; document.getElementById("jTxt").textContent = f.x;
+      jCard.classList.remove("troca"); void jCard.offsetWidth; jCard.classList.add("troca"); }
+  }
+  jR.addEventListener("input", jornada); jornada();
+
+  /* Simulador de tempo */
+  var sim = {dias:4, min:40};
+  function calc(){
+    var semanas = 45 / 7, trad = sim.dias * 90 * semanas / 60, proj = sim.dias * sim.min * semanas / 60, eco = trad - proj;
+    var h = function(n){ return n.toFixed(n < 10 ? 1 : 0).replace(".", ",") + "h"; };
+    document.getElementById("tTrad").textContent = h(trad); document.getElementById("tProj").textContent = h(proj);
+    document.getElementById("bTrad").style.width = "100%"; document.getElementById("bProj").style.width = (proj / trad * 100) + "%";
+    document.getElementById("simRes").innerHTML = "Em 45 dias você economiza <b>" + h(eco) + "</b> e treina só <b>" + Math.round(sim.min * sim.dias / 7) + " min por dia</b> em média.";
+  }
+  document.querySelectorAll(".chips").forEach(function(g){
+    var bs = Array.prototype.slice.call(g.querySelectorAll("button"));
+    bs.forEach(function(b){ b.addEventListener("click", function(){ bs.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); }); sim[g.dataset.grupo] = +b.dataset.v; calc(); }); });
+  });
+  calc();
+
+  /* Mito ou verdade */
+  document.querySelectorAll(".flip").forEach(function(f){ f.addEventListener("click", function(){ f.setAttribute("aria-pressed", f.getAttribute("aria-pressed") === "true" ? "false" : "true"); }); });
+
+  /* Pagamento */
+  var pgBtns = Array.prototype.slice.call(document.querySelectorAll(".pg button")), pgValor = document.getElementById("pgValor");
+  pgBtns.forEach(function(b){ b.addEventListener("click", function(){
+    pgBtns.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
+    var pix = b.dataset.pg === "pix";
+    pgValor.innerHTML = pix ? "<small>R$</small><b>197</b>" : "<small>12x</small><b>19,90</b>";
+    document.getElementById("pgObs").innerHTML = pix ? "à vista no Pix, <b>economia de R$ 41,80</b>" : "ou <b>R$ 197,00 à vista</b> no Pix";
+    document.getElementById("pgDia").innerHTML = pix ? "Menos de <b>R$ 4,40 por dia</b> de projeto" : "Menos de <b>R$ 5,40 por dia</b> de projeto";
+    document.getElementById("pgBtn").href = wa(pix ? MSG.pix : MSG.plano);
+    pgValor.classList.remove("troca"); void pgValor.offsetWidth; pgValor.classList.add("troca");
+  }); });
+
+  /* Formulário */
+  var F = {nome:"fNome", tel:"fTel", obj:"fObj", tempo:"fTempo", cidade:"fCidade"};
+  Object.keys(F).forEach(function(k){ F[k] = document.getElementById(F[k]); });
+  F.tel.addEventListener("input", function(){
+    var d = F.tel.value.replace(/\D/g,"").slice(0,11);
+    F.tel.value = d.length > 6 ? "(" + d.slice(0,2) + ") " + d.slice(2, d.length-4) + "-" + d.slice(-4) : d.length > 2 ? "(" + d.slice(0,2) + ") " + d.slice(2) : d;
+  });
+  document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+    var erro = [], err = document.getElementById("fErro");
+    ["nome","tel","obj"].forEach(function(k){ F[k].closest(".campo").classList.remove("erro"); });
+    if (!F.nome.value.trim()){ erro.push("seu nome"); F.nome.closest(".campo").classList.add("erro"); }
+    if (F.tel.value.replace(/\D/g,"").length < 10){ erro.push("um WhatsApp com DDD"); F.tel.closest(".campo").classList.add("erro"); }
+    if (!F.obj.value){ erro.push("o seu objetivo"); F.obj.closest(".campo").classList.add("erro"); }
+    if (erro.length){ err.textContent = "Falta preencher " + erro.join(", ") + "."; return; }
+    err.textContent = "";
+    var d = {origem:"formulario", nome:F.nome.value.trim(), whatsapp:F.tel.value, objetivo:F.obj.value, tempo:F.tempo.value, cidade:F.cidade.value.trim()};
+    salvaLead(d);
+    var t = "Oi, Diego! Sou " + d.nome + (d.cidade ? ", de " + d.cidade : "") + ".\nObjetivo: " + d.objetivo + (d.tempo ? "\nTempo por dia: " + d.tempo : "") + "\nQuero saber mais sobre o Projeto 45 Dias.";
+    var ok = document.getElementById("fOk"); ok.classList.add("on");
+    var a = document.createElement("a"); a.href = wa(t); a.target = "_blank"; a.rel = "noopener"; a.className = "btn btn-zap"; a.style.marginTop = "10px"; a.style.width = "100%"; a.textContent = "Abrir WhatsApp";
+    if (!ok.querySelector("a")) ok.appendChild(a); else ok.querySelector("a").href = a.href;
+    var w = window.open(a.href, "_blank"); if (!w) a.focus();
+  });
+})();
+</script>
+</body>
+</html>
