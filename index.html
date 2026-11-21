@@ -94,6 +94,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px
 .hero-grid{display:grid;gap:34px;position:relative}
 .tag-cref{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--cinza);border:1px solid var(--linha);border-radius:999px;padding:6px 12px;align-self:flex-start}
 .tag-cref i{width:8px;height:8px;border-radius:50%;background:var(--zap);box-shadow:0 0 0 4px rgba(31,168,85,.2)}
+.micro{font-size:.88rem;color:var(--cinza);margin-top:-6px}
 .hero .lead{font-size:1.15rem;color:#d4d2cb}
 .placar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
 .placar div{border-left:3px solid var(--amarelo);padding:4px 0 4px 12px;min-width:0}
@@ -151,6 +152,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px
 .res-tabs button[aria-pressed="true"]{background:var(--amarelo);color:var(--chao);border-color:var(--amarelo)}
 .res-grid{display:grid;gap:22px;align-items:center}
 @media (min-width:860px){.res-grid{grid-template-columns:.9fr 1.1fr;gap:48px}}
+.comp .kg{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:2;background:var(--amarelo);color:var(--chao);font-family:var(--f-display);font-size:1.7rem;line-height:1;padding:8px 16px;border-radius:10px;box-shadow:0 10px 24px -8px rgba(0,0,0,.6);pointer-events:none;white-space:nowrap}
+.res-thumbs span.kgt{color:var(--amarelo);font-size:.82rem}
+.res-thumbs button[aria-pressed="true"] span.kgt{color:var(--chao)}
 .res-thumbs{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 12px;margin-bottom:12px;scrollbar-width:thin}
 .res-thumbs button{flex:0 0 84px;scroll-snap-align:start;border:2px solid var(--linha);border-radius:12px;background:var(--chao-2);padding:0;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:3/4;transition:border-color .15s,transform .15s}
 .res-thumbs button:hover{transform:translateY(-2px)}
@@ -469,7 +473,7 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
     <div class="menu">
       <a href="#solucao">Como funciona</a><a href="#resultados">Resultados</a><a href="#sobre">Sobre</a><a href="#oferta">Planos</a><a href="#faq">Dúvidas</a>
     </div>
-    <a class="btn btn-am nav-cta" href="#oferta">Quero começar</a>
+    <a class="btn btn-am nav-cta" href="#oferta">Começar agora</a>
   </div>
 </nav>
 
@@ -483,9 +487,10 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
       <h1>Menos gordura.<br><span class="hl">Mais músculo.</span><br>Sem perder tempo.</h1>
       <p class="lead">Treine em casa ou na academia, com treino no aplicativo e o Diego acompanhando cada passo. Treinos curtos, avaliação física inclusa e opção com nutricionista.</p>
       <div class="btns">
-        <a class="btn btn-am" href="#oferta">Quero começar agora</a>
+        <a class="btn btn-am" href="#oferta">Sim, eu quero mudar meu corpo</a>
         <a class="btn btn-o" href="#quiz">Fazer o teste grátis</a>
       </div>
+      <p class="micro">Você escolhe o plano em 1 minuto.</p>
       <div class="placar">
         <div><b data-count="2000" data-pre="+" data-sep="1">+2.000</b><span>alunos acompanhados</span></div>
         <div><b data-count="12" data-suf=" anos">12 anos</b><span>de academia própria</span></div>
@@ -616,18 +621,20 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
     <div class="head rv">
       <div class="eyebrow">Resultados reais</div>
       <h2>Quem decidiu, <span class="hl">mudou</span></h2>
-      <p class="sub">9 transformações reais. Escolha uma foto e arraste a linha amarela para comparar.</p>
+      <p class="sub">11 transformações reais. Escolha uma foto e arraste a linha amarela para comparar.</p>
     </div>
     <div class="res-thumbs rv" role="group" aria-label="Escolher resultado">
-      <button type="button" aria-pressed="true" data-c="0"><img src="img/frente-depois.jpg" alt="" loading="lazy"><span>Frente</span></button>
-      <button type="button" aria-pressed="false" data-c="1"><img src="img/costas-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
-      <button type="button" aria-pressed="false" data-c="2"><img src="img/aluno-depois.jpg" alt="" loading="lazy"><span>22% para 15%</span></button>
-      <button type="button" aria-pressed="false" data-c="3"><img src="r5-depois.jpg" alt="" loading="lazy"><span>Frente</span></button>
-      <button type="button" aria-pressed="false" data-c="4"><img src="r6-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
-      <button type="button" aria-pressed="false" data-c="5"><img src="r9-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
-      <button type="button" aria-pressed="false" data-c="6"><img src="r10-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
-      <button type="button" aria-pressed="false" data-c="7"><img src="r4-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
-      <button type="button" aria-pressed="false" data-c="8"><img src="r8-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
+      <button type="button" aria-pressed="true" data-c="0"><img src="img/frente-depois.jpg" alt="" loading="lazy"><span class="kgt">-12 kg</span></button>
+      <button type="button" aria-pressed="false" data-c="1"><img src="img/costas-depois.jpg" alt="" loading="lazy"><span class="kgt">-12 kg</span></button>
+      <button type="button" aria-pressed="false" data-c="2"><img src="img/aluno-depois.jpg" alt="" loading="lazy"><span>22% → 15%</span></button>
+      <button type="button" aria-pressed="false" data-c="3"><img src="r5-depois.jpg" alt="" loading="lazy"><span class="kgt">-10 kg</span></button>
+      <button type="button" aria-pressed="false" data-c="4"><img src="r6-depois.jpg" alt="" loading="lazy"><span class="kgt">-10 kg</span></button>
+      <button type="button" aria-pressed="false" data-c="5"><img src="r11-depois.jpg" alt="" loading="lazy"><span class="kgt">-25 kg</span></button>
+      <button type="button" aria-pressed="false" data-c="6"><img src="r12-depois.jpg" alt="" loading="lazy"><span class="kgt">-20 kg</span></button>
+      <button type="button" aria-pressed="false" data-c="7"><img src="r9-depois.jpg" alt="" loading="lazy"><span>Costas</span></button>
+      <button type="button" aria-pressed="false" data-c="8"><img src="r10-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
+      <button type="button" aria-pressed="false" data-c="9"><img src="r4-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
+      <button type="button" aria-pressed="false" data-c="10"><img src="r8-depois.jpg" alt="" loading="lazy"><span>Perfil</span></button>
     </div>
     <div class="res-grid">
       <div class="rv">
@@ -635,6 +642,7 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
           <img id="cAntes" src="img/frente-antes.jpg" alt="Antes" width="760" height="827">
           <img class="dep" id="cDepois" src="img/frente-depois.jpg" alt="Depois" width="760" height="827">
           <span class="rot a">Antes</span><span class="rot d">Depois</span>
+          <span class="kg" id="cKg">-12 kg</span>
           <span class="linha-c"></span><span class="alca">⇆</span>
           <input type="range" min="0" max="100" value="50" id="cRange" aria-label="Comparar antes e depois">
         </div>
@@ -643,7 +651,7 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
       <div class="caso stack rv" aria-live="polite">
         <h3 id="cTit">Barriga e peitoral mais secos</h3>
         <p class="sub" id="cTxt" style="margin:0">Redução visível de gordura na região abdominal e no peitoral, com ombros e braços mais definidos.</p>
-        <div class="dados" id="cDados"><span>Recomposição corporal</span><span>Treino + alimentação</span></div>
+        <div class="dados" id="cDados"><span>-12 kg</span><span>De frente</span></div>
         <a class="btn btn-am" href="#oferta" style="align-self:flex-start">Quero esse resultado</a>
         <p class="aviso">Resultados individuais. Cada corpo responde de um jeito, conforme dedicação e rotina.</p>
       </div>
@@ -832,15 +840,17 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
 
   /* Comparador antes e depois */
   var CASOS = [
-    {"a": "img/frente-antes.jpg", "d": "img/frente-depois.jpg", "ar": "760/827", "t": "Barriga e peitoral mais secos", "x": "Redução visível de gordura na região abdominal e no peitoral, com ombros e braços mais definidos.", "tags": ["Recomposição corporal", "De frente"]},
-    {"a": "img/costas-antes.jpg", "d": "img/costas-depois.jpg", "ar": "760/827", "t": "Costas definidas", "x": "Menos gordura na lombar e nas laterais, com as costas mais largas e desenhadas.", "tags": ["Recomposição corporal", "De costas"]},
-    {"a": "img/aluno-antes.jpg", "d": "img/aluno-depois.jpg", "ar": "600/958", "t": "De 22% para 15% de gordura", "x": "Aluno de 23 anos que reduziu 7 pontos percentuais de gordura, com abdômen e braços mais definidos.", "tags": ["23 anos", "22% para 15% de gordura"]},
-    {"a": "r5-antes.jpg", "d": "r5-depois.jpg", "ar": "435/900", "t": "Cintura e abdômen menores", "x": "Redução visível de gordura abdominal, com a cintura mais desenhada.", "tags": ["Aluna", "De frente"]},
-    {"a": "r6-antes.jpg", "d": "r6-depois.jpg", "ar": "438/900", "t": "Costas e cintura mais secas", "x": "A mesma aluna de costas: menos gordura na cintura e nas costas.", "tags": ["Aluna", "De costas"]},
-    {"a": "r9-antes.jpg", "d": "r9-depois.jpg", "ar": "444/900", "t": "Costas largas e definidas", "x": "Menos gordura na lombar e mais músculo nas costas e nos ombros. Recomposição na prática.", "tags": ["Recomposição corporal", "De costas"]},
-    {"a": "r10-antes.jpg", "d": "r10-depois.jpg", "ar": "444/900", "t": "Abdômen mais seco", "x": "De perfil: barriga menor e tronco mais definido.", "tags": ["Recomposição corporal", "De perfil"]},
-    {"a": "r4-antes.jpg", "d": "r4-depois.jpg", "ar": "531/900", "t": "Abdômen mais reto", "x": "De perfil: barriga reduzida e postura mais alinhada.", "tags": ["Aluno", "De perfil"]},
-    {"a": "r8-antes.jpg", "d": "r8-depois.jpg", "ar": "444/900", "t": "Barriga reduzida", "x": "De perfil: menos volume abdominal e cintura mais fina.", "tags": ["Aluno", "De perfil"]}
+    {"a": "img/frente-antes.jpg", "d": "img/frente-depois.jpg", "ar": "760/827", "kg": "-12 kg", "t": "Barriga e peitoral mais secos", "x": "Redução visível de gordura na região abdominal e no peitoral, com ombros e braços mais definidos.", "tags": ["-12 kg", "De frente"]},
+    {"a": "img/costas-antes.jpg", "d": "img/costas-depois.jpg", "ar": "760/827", "kg": "-12 kg", "t": "Costas definidas", "x": "O mesmo aluno de costas: menos gordura na lombar e nas laterais, com as costas mais desenhadas.", "tags": ["-12 kg", "De costas"]},
+    {"a": "img/aluno-antes.jpg", "d": "img/aluno-depois.jpg", "ar": "600/958", "kg": "", "t": "De 22% para 15% de gordura", "x": "Aluno de 23 anos que reduziu 7 pontos percentuais de gordura, com abdômen e braços mais definidos.", "tags": ["23 anos", "22% para 15% de gordura"]},
+    {"a": "r5-antes.jpg", "d": "r5-depois.jpg", "ar": "435/900", "kg": "-10 kg", "t": "Cintura e abdômen menores", "x": "Redução visível de gordura abdominal, com a cintura mais desenhada.", "tags": ["-10 kg", "De frente"]},
+    {"a": "r6-antes.jpg", "d": "r6-depois.jpg", "ar": "438/900", "kg": "-10 kg", "t": "Costas e cintura mais secas", "x": "A mesma aluna de costas: menos gordura na cintura e nas costas.", "tags": ["-10 kg", "De costas"]},
+    {"a": "r11-antes.jpg", "d": "r11-depois.jpg", "ar": "720/637", "kg": "-25 kg", "t": "Menos 25 quilos", "x": "Braços, cintura e abdômen muito mais finos. A mudança aparece até na roupa.", "tags": ["-25 kg", "Aluna"]},
+    {"a": "r12-antes.jpg", "d": "r12-depois.jpg", "ar": "720/637", "kg": "-20 kg", "t": "Menos 20 quilos", "x": "Da academia para o vestido: corpo mais leve, com cintura e pernas mais definidas.", "tags": ["-20 kg", "Aluna"]},
+    {"a": "r9-antes.jpg", "d": "r9-depois.jpg", "ar": "444/900", "kg": "", "t": "Costas largas e definidas", "x": "Menos gordura na lombar e mais músculo nas costas e nos ombros. Recomposição na prática.", "tags": ["Recomposição corporal", "De costas"]},
+    {"a": "r10-antes.jpg", "d": "r10-depois.jpg", "ar": "444/900", "kg": "", "t": "Abdômen mais seco", "x": "De perfil: barriga menor e tronco mais definido.", "tags": ["Recomposição corporal", "De perfil"]},
+    {"a": "r4-antes.jpg", "d": "r4-depois.jpg", "ar": "531/900", "kg": "", "t": "Abdômen mais reto", "x": "De perfil: barriga reduzida e postura mais alinhada.", "tags": ["Aluno", "De perfil"]},
+    {"a": "r8-antes.jpg", "d": "r8-depois.jpg", "ar": "444/900", "kg": "", "t": "Barriga reduzida", "x": "De perfil: menos volume abdominal e cintura mais fina.", "tags": ["Aluno", "De perfil"]}
   ];
   var comp = document.getElementById("comp"), rg = document.getElementById("cRange");
   rg.addEventListener("input", function(){ comp.style.setProperty("--x", rg.value + "%"); });
@@ -850,7 +860,7 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
     tabs.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); });
     document.getElementById("cAntes").src = c.a; document.getElementById("cDepois").src = c.d;
     comp.style.setProperty("--ar", c.ar); rg.value = 50; comp.style.setProperty("--x","50%");
-    document.getElementById("cTit").textContent = c.t; document.getElementById("cTxt").textContent = c.x;
+    var kgEl = document.getElementById("cKg"); kgEl.textContent = c.kg || ""; kgEl.hidden = !c.kg; document.getElementById("cTit").textContent = c.t; document.getElementById("cTxt").textContent = c.x;
     document.getElementById("cDados").innerHTML = c.tags.map(function(s){ return "<span>" + s + "</span>"; }).join("");
   }); });
 
