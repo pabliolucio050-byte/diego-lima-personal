@@ -252,33 +252,39 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 .barra.hide{transform:translateY(110%)}
 .progresso{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:0;background:var(--amarelo);z-index:61}
 /* Planos */
-.modo{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;border-radius:14px;background:var(--chao-2);border:1px solid var(--linha);max-width:620px;margin:0 auto}
-.modo button{min-height:64px;border-radius:10px;border:0;background:transparent;color:var(--cinza);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px;transition:.2s}
-.modo b{font-family:var(--f-cond);font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;line-height:1.05}
-.modo span{font-size:.8rem}
-.modo button[aria-pressed="true"]{background:var(--amarelo);color:var(--chao)}
-.nutri-tag{text-align:center;margin:14px auto 0;color:#d4d2cb;font-size:.95rem}
-.nutri-tag b{color:var(--amarelo)}
-.planos{display:grid;gap:16px;margin-top:26px}
-@media (min-width:900px){.planos{grid-template-columns:repeat(3,1fr);align-items:stretch}}
-.plano{position:relative;background:var(--chao-2);border:1px solid var(--linha);border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:transform .2s}
+.grupos{display:grid;gap:34px}
+.grupo{border:1px solid var(--linha);border-radius:24px;padding:22px 16px;background:linear-gradient(180deg,#14161a,var(--chao))}
+.g-nutri{border:2px solid var(--amarelo);background:linear-gradient(180deg,rgba(255,194,26,.08),var(--chao) 60%)}
+.g-head{display:grid;gap:16px;align-items:center;margin-bottom:20px}
+.g-foto{border-radius:16px;overflow:hidden;aspect-ratio:586/490;max-width:100%}
+.g-foto img{width:100%;height:100%;object-fit:cover}
+.g-txt{display:flex;flex-direction:column;gap:6px}
+.g-selo{align-self:flex-start;background:var(--amarelo);color:var(--chao);font-family:var(--f-cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;padding:5px 10px;border-radius:6px}
+.g-txt h3{font-size:clamp(1.8rem,7vw,2.4rem)}
+.g-txt p{color:var(--cinza)}
+.g-inclui{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.g-inclui li{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--linha);border-radius:8px;padding:6px 10px;font-size:.9rem}
+.g-inclui li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--amarelo)}
+@media (min-width:860px){.grupo{padding:30px}.g-nutri .g-head{grid-template-columns:.8fr 1.2fr;gap:28px}}
+.planos{display:grid;gap:12px}
+@media (min-width:900px){.planos{grid-template-columns:repeat(3,1fr);align-items:stretch;gap:16px}}
+.plano{position:relative;background:var(--chao-2);border:1px solid var(--linha);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:6px;min-width:0;transition:transform .2s}
 .plano:hover{transform:translateY(-4px)}
-.plano.top{border:2px solid var(--amarelo);box-shadow:0 30px 60px -30px rgba(255,194,26,.35)}
-.plano .tag{position:absolute;top:-14px;left:22px;background:var(--amarelo);color:var(--chao);font-family:var(--f-cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;padding:6px 12px;border-radius:8px}
-.plano h3{font-size:1.7rem}
-.plano .dur{font-size:.9rem;color:var(--cinza);margin-top:-8px}
-.plano .parc{display:flex;align-items:flex-end;gap:8px;line-height:1}
-.plano .parc small{font-family:var(--f-cond);font-weight:700;font-size:1.5rem;color:var(--giz);padding-bottom:8px}
-.plano .parc b{font-family:var(--f-display);font-weight:400;font-size:clamp(3.2rem,13vw,4.2rem);color:var(--amarelo);font-variant-numeric:tabular-nums}
-.plano .parc em{font-style:normal;font-family:var(--f-cond);font-weight:700;font-size:1.3rem;color:var(--amarelo);padding-bottom:8px}
-.plano .vista{font-size:1rem;color:#d4d2cb}
+.plano.top{border:2px solid var(--amarelo);box-shadow:0 24px 50px -30px rgba(255,194,26,.45);margin-top:10px}
+.plano .tag{position:absolute;top:-13px;left:18px;background:var(--amarelo);color:var(--chao);font-family:var(--f-cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;padding:5px 10px;border-radius:7px}
+.pl-topo{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.plano h3{font-size:1.6rem}
+.plano .dur{font-size:.88rem;color:var(--cinza)}
+.plano .de{color:var(--cinza);font-size:1rem;text-decoration:line-through;text-decoration-color:#ff6b4a;text-decoration-thickness:2px;margin-top:4px}
+.plano .por{font-family:var(--f-cond);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.95rem}
+.plano .parc{display:flex;align-items:flex-end;gap:6px;line-height:1}
+.plano .parc small{font-family:var(--f-cond);font-weight:700;font-size:1.45rem;color:var(--giz);padding-bottom:7px}
+.plano .parc em{font-style:normal;font-family:var(--f-cond);font-weight:700;font-size:1.25rem;color:var(--amarelo);padding-bottom:7px}
+.plano .parc b{font-family:var(--f-display);font-weight:400;font-size:clamp(3rem,13vw,3.9rem);color:var(--amarelo);font-variant-numeric:tabular-nums}
+.plano .vista{font-size:.98rem;color:#d4d2cb}
 .plano .vista b{color:var(--giz)}
-.plano .mes{font-size:.9rem;color:var(--cinza);border-top:1px dashed var(--linha);padding-top:10px}
-.plano .mes b{color:var(--giz)}
-.plano .eco{align-self:flex-start;background:rgba(31,168,85,.14);color:#6fdc9a;border-radius:8px;padding:5px 10px;font-size:.85rem;font-weight:600}
-.plano .lista li{font-size:.95rem}
+.plano .eco{align-self:flex-start;background:rgba(31,168,85,.14);color:#6fdc9a;border-radius:8px;padding:5px 10px;font-size:.85rem;font-weight:600;margin:4px 0 8px}
 .plano .btn{margin-top:auto}
-.planos.troca .plano{animation:troca .35s ease}
 /* Hero foto e chip */
 .foto-diego .quadro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .foto-diego .quadro::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,14,16,.75))}
@@ -597,15 +603,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     <div class="head rv">
       <div class="eyebrow">Planos</div>
       <h2>Escolha o seu plano e <span class="hl">comece hoje</span></h2>
-      <p class="sub">Só treino com o Diego, ou treino com acompanhamento da nutricionista. Quanto maior o plano, menor o valor por mês.</p>
+      <p class="sub">Duas opções, lado a lado: só treino com o Diego ou treino com acompanhamento da nutricionista. Quanto maior o plano, menor a parcela.</p>
     </div>
-    <div class="modo rv" role="group" aria-label="Escolher tipo de consultoria">
-      <button type="button" data-modo="treino" aria-pressed="true"><b>Consultoria fitness</b><span>Treino com o Diego</span></button>
-      <button type="button" data-modo="nutri" aria-pressed="false"><b>Fitness + nutricional</b><span>Diego + nutricionista</span></button>
+    <div class="grupos">
+      <div class="grupo g-treino rv">
+        <div class="g-head"><div class="g-txt"><h3>Consultoria fitness</h3><p>Treino com o Diego</p><ul class="g-inclui"><li>Consultoria completa</li><li>Treinos no app</li><li>Avaliação física inclusa</li><li>Suporte e acompanhamento</li></ul></div></div>
+        <div class="planos"><article class="plano"><div class="pl-topo"><h3>Trimestral</h3><span class="dur">3 meses</span></div><s class="de">De 3x R$ 179,90</s><span class="por">Por apenas</span><div class="parc"><small>3x</small><em>R$</em><b>141,68</b></div><p class="vista">ou <b>R$ 397,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 115</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Trimestral da Consultoria Fitness (3x de R$ 141,68 ou R$ 397,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o trimestral</a></article><article class="plano"><div class="pl-topo"><h3>Semestral</h3><span class="dur">6 meses</span></div><s class="de">De 6x R$ 141,68</s><span class="por">Por apenas</span><div class="parc"><small>6x</small><em>R$</em><b>112,00</b></div><p class="vista">ou <b>R$ 597,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 178</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Semestral da Consultoria Fitness (6x de R$ 112,00 ou R$ 597,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o semestral</a></article><article class="plano top"><span class="tag">Melhor custo</span><div class="pl-topo"><h3>Anual</h3><span class="dur">12 meses</span></div><s class="de">De 12x R$ 141,68</s><span class="por">Por apenas</span><div class="parc"><small>12x</small><em>R$</em><b>103,11</b></div><p class="vista">ou <b>R$ 997,00 à vista</b> no Pix</p><span class="eco">Você economiza R$ 463</span><a class="btn btn-am" data-msg="Oi, Diego! Vi sua página e quero o plano Anual da Consultoria Fitness (12x de R$ 103,11 ou R$ 997,00 à vista). Como faço?" href="#" target="_blank" rel="noopener">Quero o anual</a></article></div>
+      </div>
+      <div class="grupo g-nutri rv">
+        <div class="g-head"><div class="g-foto"><img src="img/equipe.jpg" alt="Nutricionista Thamires Weber e personal Diego Lima" width="586" height="490" loading="lazy"></div><div class="g-txt"><span class="g-selo">Mais completo</span><h3>Fitness + nutricional</h3><p>Diego + nutricionista Thamires Weber</p><ul class="g-inclui"><li>Tudo da consultoria fitness</li><li>Acompanhamento nutricional</li><li>Plano alimentar para o seu objetivo</li><li>Nutricionista CRN 1-22412</li></ul></div></div>
+        <div class="planos"><article class="plano"><div class="pl-topo"><h3>Trimestral</h3><span class="dur">3 meses</span></div><s class="de">De 3x R$ 329,00</s><span class="por">Por apenas</span><div class="parc"><small>3x</small><em>R$</em><b>265,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 192</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Trimestral da Consultoria Fitness + Acompanhamento Nutricional (3x de R$ 265,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o trimestral</a></article><article class="plano"><div class="pl-topo"><h3>Semestral</h3><span class="dur">6 meses</span></div><s class="de">De 6x R$ 265,00</s><span class="por">Por apenas</span><div class="parc"><small>6x</small><em>R$</em><b>199,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 396</span><a class="btn btn-o" data-msg="Oi, Diego! Vi sua página e quero o plano Semestral da Consultoria Fitness + Acompanhamento Nutricional (6x de R$ 199,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o semestral</a></article><article class="plano top"><span class="tag">Melhor custo</span><div class="pl-topo"><h3>Anual</h3><span class="dur">12 meses</span></div><s class="de">De 12x R$ 265,00</s><span class="por">Por apenas</span><div class="parc"><small>12x</small><em>R$</em><b>149,00</b></div><p class="vista">no cartão de crédito</p><span class="eco">Você economiza R$ 1.392</span><a class="btn btn-am" data-msg="Oi, Diego! Vi sua página e quero o plano Anual da Consultoria Fitness + Acompanhamento Nutricional (12x de R$ 149,00). Como faço?" href="#" target="_blank" rel="noopener">Quero o anual</a></article></div>
+      </div>
     </div>
-    <p class="nutri-tag" id="nutriTag" hidden>Com a nutricionista <b>Thamires Weber</b> · CRN 1-22412</p>
-    <div class="planos" id="planos" aria-live="polite"></div>
-    <p class="aviso" style="text-align:center;margin-top:16px">Valores parcelados no cartão. À vista no Pix quando indicado.</p>
+    <p class="aviso" style="text-align:center;margin-top:18px">Parcelas no cartão de crédito. À vista no Pix quando indicado.</p>
   </div>
 </section>
 
@@ -823,47 +833,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   /* Mito ou verdade */
   document.querySelectorAll(".flip").forEach(function(f){ f.addEventListener("click", function(){ f.setAttribute("aria-pressed", f.getAttribute("aria-pressed") === "true" ? "false" : "true"); }); });
 
-  /* Planos */
-  var PLANOS = {
-    treino: [
-      {n:"Trimestral", d:"3 meses", x:3, p:"141,68", v:397},
-      {n:"Semestral", d:"6 meses", x:6, p:"112,00", v:597},
-      {n:"Anual", d:"12 meses", x:12, p:"103,11", v:997, top:1}
-    ],
-    nutri: [
-      {n:"Trimestral", d:"3 meses", x:3, p:"265,00", m:265},
-      {n:"Semestral", d:"6 meses", x:6, p:"199,00", m:199},
-      {n:"Anual", d:"12 meses", x:12, p:"149,00", m:149, top:1}
-    ]
-  };
-  var INCLUI = {
-    treino: ["Consultoria completa","Treinos no app","Avaliação física inclusa","Suporte e acompanhamento"],
-    nutri: ["Consultoria completa com o Diego","Acompanhamento nutricional","Treinos no app","Avaliação física inclusa","Suporte e acompanhamento"]
-  };
-  var brl = function(n){ return n.toLocaleString("pt-BR",{minimumFractionDigits:2, maximumFractionDigits:2}); };
-  var planosEl = document.getElementById("planos");
-  function planos(modo){
-    var L = PLANOS[modo], base = modo === "treino" ? L[0].v / 3 : L[0].m;
-    planosEl.innerHTML = L.map(function(p){
-      var mes = modo === "treino" ? p.v / p.x : p.m;
-      var eco = Math.round((base - mes) * p.x);
-      var nome = (modo === "treino" ? "Consultoria fitness" : "Consultoria fitness + nutricional") + ", plano " + p.n.toLowerCase();
-      var msg = "Oi, Diego! Vi sua página e quero o plano " + p.n + " da " + (modo === "treino" ? "Consultoria Fitness" : "Consultoria Fitness + Acompanhamento Nutricional") + " (" + p.x + "x de R$ " + p.p + (p.v ? " ou R$ " + brl(p.v) + " à vista" : "") + "). Como faço?";
-      return '<article class="plano' + (p.top ? " top" : "") + '">' + (p.top ? '<span class="tag">Melhor custo</span>' : "") +
-        '<h3>' + p.n + '</h3><span class="dur">' + p.d + '</span>' +
-        '<div class="parc"><small>' + p.x + 'x</small><em>R$</em><b>' + p.p + '</b></div>' +
-        (p.v ? '<p class="vista">ou <b>R$ ' + brl(p.v) + ' à vista</b> no Pix</p>' : '<p class="vista">no cartão</p>') +
-        '<p class="mes">Equivale a <b>R$ ' + brl(mes) + ' por mês</b>' + (p.v ? ' no Pix' : '') + '</p>' +
-        (eco > 0 ? '<span class="eco">Economia de R$ ' + eco.toLocaleString("pt-BR") + ' no período</span>' : '') +
-        '<ul class="lista">' + INCLUI[modo].map(function(i){ return "<li>" + i + "</li>"; }).join("") + '</ul>' +
-        '<a class="btn ' + (p.top ? "btn-am" : "btn-o") + '" href="' + wa(msg) + '" target="_blank" rel="noopener" aria-label="Quero o ' + nome + '">Quero o ' + p.n.toLowerCase() + '</a></article>';
-    }).join("");
-    document.getElementById("nutriTag").hidden = modo !== "nutri";
-    planosEl.classList.remove("troca"); void planosEl.offsetWidth; planosEl.classList.add("troca");
-  }
-  var modos = Array.prototype.slice.call(document.querySelectorAll(".modo button"));
-  modos.forEach(function(b){ b.addEventListener("click", function(){ modos.forEach(function(x){ x.setAttribute("aria-pressed", String(x===b)); }); planos(b.dataset.modo); }); });
-  planos("treino");
+  /* Botões de plano */
+  document.querySelectorAll("[data-msg]").forEach(function(a){ a.href = wa(a.getAttribute("data-msg")); });
+  var fotoEq = document.querySelector(".g-foto img");
+  if (fotoEq){ var some = function(){ fotoEq.parentNode.remove(); }; if (fotoEq.complete && !fotoEq.naturalWidth) some(); else fotoEq.addEventListener("error", some); }
 
   /* Formulário */
   var F = {nome:"fNome", tel:"fTel", obj:"fObj", tempo:"fTempo", cidade:"fCidade"};
