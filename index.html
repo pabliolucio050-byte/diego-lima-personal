@@ -89,7 +89,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px
 @media (min-width:920px){.menu{display:flex}}
 
 /* Hero */
-.hero{padding-block:36px 56px;overflow:hidden}
+.hero{padding-block:36px 56px;overflow:hidden;position:relative}
 .hero::before{content:"";position:absolute;right:-20%;top:-30%;width:760px;height:760px;background:radial-gradient(circle,rgba(255,194,26,.14),transparent 62%);pointer-events:none}
 .hero-grid{display:grid;gap:34px;position:relative}
 .tag-cref{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--cinza);border:1px solid var(--linha);border-radius:999px;padding:6px 12px;align-self:flex-start}
@@ -265,6 +265,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 .final .wrap.form-grid{display:grid}
 /* Planos */
 .grupos{display:grid;gap:34px}
+.grupos>.grupo{min-width:0}
 .grupo{border:1px solid var(--linha);border-radius:24px;padding:22px 16px;background:linear-gradient(180deg,#14161a,var(--chao))}
 .g-nutri{border:2px solid var(--amarelo);background:linear-gradient(180deg,rgba(255,194,26,.08),var(--chao) 60%)}
 .g-head{display:grid;gap:16px;align-items:center;margin-bottom:20px}
@@ -385,6 +386,78 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 .parc.troca{animation:troca .3s ease}
 @media (min-width:760px){section{padding-block:100px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js .rv:not(.on){transform:none}}
+/* Solução e app */
+.sol-grid{display:grid;gap:34px;align-items:center}
+@media (min-width:900px){.sol-grid{grid-template-columns:1fr 1fr;gap:56px}}
+.passos-l{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:12px;counter-reset:p}
+.passos-l li{counter-increment:p;display:grid;grid-template-columns:42px 1fr;gap:2px 14px;align-items:start}
+.passos-l li::before{content:counter(p);grid-row:span 2;width:42px;height:42px;border-radius:10px;background:var(--amarelo);color:var(--chao);display:grid;place-items:center;font-family:var(--f-display);font-size:1.4rem}
+.passos-l b{font-family:var(--f-cond);font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em}
+.passos-l span{color:var(--cinza);font-size:.95rem}
+.local{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border-radius:12px;background:var(--chao-2);border:1px solid var(--linha);max-width:380px;margin:0 auto 16px}
+.local button{min-height:46px;border-radius:9px;border:0;background:transparent;color:var(--cinza);font:700 1rem var(--f-cond);letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.local button[aria-pressed="true"]{background:var(--amarelo);color:var(--chao)}
+.celular{max-width:360px;margin:0 auto;border-radius:36px;border:10px solid #23262d;background:#0a0b0d;padding:18px 14px 16px;box-shadow:0 40px 70px -35px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.06);display:grid;gap:14px}
+.cel-topo{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px}
+.cel-topo span{font-family:var(--f-cond);font-weight:700;font-size:1.3rem;text-transform:uppercase}
+.cel-topo b{font-size:.8rem;color:var(--cinza);font-weight:500}
+.semana{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.dia{position:relative;border:1px solid var(--linha);background:var(--chao-2);border-radius:10px;min-height:58px;padding:6px 0;color:var(--giz);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:var(--f-cond);transition:.15s}
+.dia small{font-size:.7rem;color:var(--cinza);letter-spacing:.06em;text-transform:uppercase}
+.dia b{font-size:1.1rem;font-weight:700}
+.dia i{width:6px;height:6px;border-radius:50%;background:transparent}
+.dia.feito i{background:var(--zap)}
+.dia.hoje i{background:var(--amarelo)}
+.dia.desc{opacity:.6}
+.dia[aria-pressed="true"]{border-color:var(--amarelo);background:rgba(255,194,26,.12)}
+.treino-card{background:var(--chao-2);border:1px solid var(--linha);border-radius:16px;padding:14px;display:grid;gap:10px;min-height:250px}
+.treino-card.troca{animation:troca .3s ease}
+@keyframes troca{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tc-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.tc-topo h4{margin:0;font-family:var(--f-cond);font-size:1.25rem;text-transform:uppercase;line-height:1.05}
+.tc-topo small{display:block;color:var(--cinza);font-size:.78rem;margin-top:2px}
+.tc-st{flex:none;font-family:var(--f-cond);font-weight:700;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--chao-3);color:var(--cinza)}
+.tc-st.ok{background:rgba(31,168,85,.18);color:#6fdc9a}
+.tc-st.hj{background:var(--amarelo);color:var(--chao)}
+.ex{list-style:none;margin:0;padding:0;display:grid}
+.ex li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--linha);font-size:.92rem}
+.ex li:last-child{border-bottom:0}
+.ex li span{color:var(--cinza);font-variant-numeric:tabular-nums;white-space:nowrap}
+.msg-diego{display:flex;gap:10px;align-items:flex-start;background:rgba(255,194,26,.08);border:1px solid rgba(255,194,26,.25);border-radius:12px;padding:10px}
+.msg-diego i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--amarelo);color:var(--chao);display:grid;place-items:center;font-style:normal;font-family:var(--f-display);font-size:.85rem}
+.msg-diego p{font-size:.86rem;line-height:1.4}
+.msg-diego b{display:block;font-size:.74rem;color:var(--amarelo);letter-spacing:.04em}
+.cel-prog{display:grid;gap:6px;padding:0 4px}
+.cel-prog span{font-size:.82rem;color:var(--cinza)}
+.cel-prog div{height:8px;border-radius:999px;background:var(--chao-3);overflow:hidden}
+.cel-prog i{display:block;height:100%;width:60%;background:var(--zap);transition:width .4s}
+/* Benefícios */
+.benef{display:grid;gap:12px}
+@media (min-width:700px){.benef{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.benef{grid-template-columns:repeat(3,1fr)}}
+.bf{background:var(--chao-2);border:1px solid var(--linha);border-radius:16px;padding:20px;display:grid;gap:6px;transition:transform .2s,border-color .2s}
+.bf:hover{transform:translateY(-3px);border-color:rgba(255,194,26,.5)}
+.bf svg{width:30px;height:30px;color:var(--amarelo)}
+.bf b{font-family:var(--f-cond);font-size:1.25rem;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.bf p{color:var(--cinza);font-size:.95rem}
+/* Captura, CTA final e rodapé */
+.captura{background:#121317}
+.captura .wrap.form-grid{display:grid;align-items:center}
+.btn-xl{min-height:64px;font-size:1.3rem;padding:16px 34px}
+.rodape{display:grid;gap:24px}
+@media (min-width:760px){.rodape{grid-template-columns:1.3fr 1fr 1fr}}
+.r-col{display:flex;flex-direction:column;gap:8px}
+.r-col b{color:var(--giz);font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.06em}
+.r-col a{text-decoration:none}
+.r-col a:hover{color:var(--amarelo)}
+.link-btn{background:none;border:0;padding:0;color:inherit;font:inherit;text-align:left;cursor:pointer;text-decoration:underline}
+.link-btn:hover{color:var(--amarelo)}
+dialog.priv{border:0;border-radius:18px;padding:0;max-width:min(560px,92vw);background:var(--chao-2);color:var(--giz)}
+dialog.priv::backdrop{background:rgba(0,0,0,.75)}
+.priv-in{padding:26px 22px;display:grid;gap:12px}
+.priv-in h3{font-size:1.6rem}
+.priv-in p{color:#d4d2cb;font-size:.95rem}
+.sobre .video-box{max-width:320px}
 </style>
 </head>
 <body>
@@ -394,7 +467,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   <div class="wrap">
     <a class="logo" href="#topo"><i>DL</i><div><b>Diego Lima</b><span>Personal trainer</span></div></a>
     <div class="menu">
-      <a href="#quiz">Teste</a><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#sobre">Sobre</a><a href="#oferta">Planos</a>
+      <a href="#solucao">Como funciona</a><a href="#resultados">Resultados</a><a href="#sobre">Sobre</a><a href="#oferta">Planos</a><a href="#faq">Dúvidas</a>
     </div>
     <a class="btn btn-am nav-cta" href="#oferta">Quero começar</a>
   </div>
@@ -402,37 +475,142 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 
 <main id="topo">
 
+<!-- 1. HEADLINE, SUBHEADLINE E CTA -->
 <header class="hero" id="hero">
   <div class="wrap hero-grid">
     <div class="stack" style="gap:20px">
       <span class="tag-cref"><i></i>Consultoria online para todo o Brasil · CREF GO 7221</span>
-      <h1>Menos gordura.<br><span class="hl">Mais músculo.</span><br>Em 45 dias.</h1>
-      <p class="lead">Treinos curtos no app, avaliação física e acompanhamento de perto, com opção de nutricionista. Para quem não tem tempo a perder e cansou de desculpa.</p>
+      <h1>Menos gordura.<br><span class="hl">Mais músculo.</span><br>Sem perder tempo.</h1>
+      <p class="lead">Treine em casa ou na academia, com treino no aplicativo e o Diego acompanhando cada passo. Treinos curtos, avaliação física inclusa e opção com nutricionista.</p>
       <div class="btns">
-        <a class="btn btn-am" href="#oferta">Ver os planos</a>
+        <a class="btn btn-am" href="#oferta">Quero começar agora</a>
         <a class="btn btn-o" href="#quiz">Fazer o teste grátis</a>
       </div>
       <div class="placar">
         <div><b data-count="2000" data-pre="+" data-sep="1">+2.000</b><span>alunos acompanhados</span></div>
         <div><b data-count="12" data-suf=" anos">12 anos</b><span>de academia própria</span></div>
-        <div><b data-count="45" data-suf=" dias">45 dias</b><span>de projeto</span></div>
+        <div><b>Brasil</b><span>atendimento online</span></div>
       </div>
     </div>
     <div class="foto-diego">
       <div class="quadro"><img src="diego-hero.jpg" alt="Diego Lima, personal trainer, na academia" width="480" height="600"></div>
       <a class="play-chip" href="#desafio" id="heroPlay"><span class="pc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>Assista o Diego · 30s</a>
-      <div class="carimbo">Planos a partir de<b>R$ 83/mês</b></div>
+      <div class="carimbo">Treine em casa<b>ou na academia</b></div>
     </div>
   </div>
 </header>
 
 <div class="faixa" aria-hidden="true">
   <div class="trilho-f">
-    <span>Menos gordura</span><span>Mais músculo</span><span>Treinos curtos</span><span>Personal + nutricionista</span><span>Sem desculpas</span>
-    <span>Menos gordura</span><span>Mais músculo</span><span>Treinos curtos</span><span>Personal + nutricionista</span><span>Sem desculpas</span>
+    <span>Menos gordura</span><span>Mais músculo</span><span>Treino no app</span><span>Em casa ou na academia</span><span>Sem desculpas</span>
+    <span>Menos gordura</span><span>Mais músculo</span><span>Treino no app</span><span>Em casa ou na academia</span><span>Sem desculpas</span>
   </div>
 </div>
 
+<!-- 2. DOR E NECESSIDADE -->
+<section id="dor">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Você se identifica?</div>
+      <h2>Você treina, faz dieta e o <span class="hl">espelho não muda?</span></h2>
+    </div>
+    <div class="dores">
+      <article class="dor rv"><span class="x">01</span><div><h3>Falta de tempo</h3><p>Treino de uma hora e meia não cabe na sua rotina. Você pula um dia, dois, e desiste.</p></div></article>
+      <article class="dor rv"><span class="x">02</span><div><h3>Dieta que tira o músculo</h3><p>Corta tudo, a balança desce um pouco e o corpo fica murcho. Depois volta tudo.</p></div></article>
+      <article class="dor rv"><span class="x">03</span><div><h3>Treino sem direção</h3><p>Copia treino da internet, faz o mesmo há meses e ninguém te diz se está certo.</p></div></article>
+    </div>
+    <p class="virada rv">O problema não é você. É treinar <span class="marca-texto">sozinho e sem método.</span></p>
+  </div>
+</section>
+
+<section id="quiz" style="background:linear-gradient(180deg,var(--chao),#121317)">
+  <div class="wrap narrow">
+    <div class="head rv">
+      <div class="eyebrow">Teste de 30 segundos</div>
+      <h2>Descubra o seu <span class="hl">ponto de partida</span></h2>
+      <p class="sub">Responda 3 perguntas. O resultado vai junto na sua mensagem para o Diego.</p>
+    </div>
+    <div class="quiz rv" id="quizBox" aria-live="polite">
+      <div class="q-passo"><span id="qN">Pergunta 1 de 3</span><span>Consultoria Diego Lima</span></div>
+      <div class="q-barra"><i id="qBar"></i></div>
+      <div id="qArea"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUÇÃO -->
+<section id="solucao">
+  <div class="wrap sol-grid">
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">A solução</div>
+      <h2>Seu personal <span class="hl">no bolso</span>, onde você estiver</h2>
+      <p class="sub" style="margin:0">Você treina no conforto de casa ou na sua academia. O Diego monta o seu treino no aplicativo, acompanha cada sessão e ajusta conforme você evolui. Atendimento online para todo o Brasil.</p>
+      <ol class="passos-l">
+        <li><b>Avaliação física</b><span>Você conta sua rotina, objetivo e manda suas fotos.</span></li>
+        <li><b>Treino no aplicativo</b><span>Sua semana organizada, com cada exercício explicado.</span></li>
+        <li><b>Acompanhamento</b><span>O Diego vê seus treinos e te orienta pelo app e pelo WhatsApp.</span></li>
+        <li><b>Ajustes</b><span>O plano evolui junto com o seu corpo.</span></li>
+      </ol>
+    </div>
+    <div class="rv">
+      <div class="local" role="group" aria-label="Onde você treina">
+        <button type="button" data-local="casa" aria-pressed="true">Treino em casa</button>
+        <button type="button" data-local="academia" aria-pressed="false">Treino na academia</button>
+      </div>
+      <div class="celular" aria-live="polite">
+        <div class="cel-topo"><span>Meu treino</span><b>Semana 3</b></div>
+        <div class="semana" id="semana"></div>
+        <div class="treino-card" id="treinoCard"></div>
+        <div class="cel-prog"><span id="celProgTxt">3 de 5 treinos feitos</span><div><i id="celProg"></i></div></div>
+      </div>
+      <p class="aviso" style="text-align:center;margin-top:10px">Exemplo ilustrativo de uma semana no aplicativo. Toque nos dias.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BENEFÍCIOS -->
+<section id="beneficios" style="background:#121317">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Benefícios</div>
+      <h2>O que muda na <span class="hl">sua rotina</span></h2>
+    </div>
+    <div class="benef">
+      <div class="bf rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><b>Treine em casa ou na academia</b><p>Treino pensado para o seu espaço, com ou sem equipamento.</p></div>
+      <div class="bf rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><b>Treinos curtos</b><p>Sessões objetivas, que cabem numa rotina corrida.</p></div>
+      <div class="bf rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg><b>Acompanhamento pelo app</b><p>O Diego acompanha seus treinos e corrige o rumo.</p></div>
+      <div class="bf rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><b>Menos gordura, mais músculo</b><p>Recomposição corporal: perde gordura sem perder massa.</p></div>
+      <div class="bf rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 3h6v4H9zM5 5h4M15 5h4v16H5V5"/><path d="M9 13l2 2 4-4"/></svg><b>Avaliação física inclusa</b><p>Ponto de partida medido e evolução acompanhada.</p></div>
+      <div class="bf rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10z"/></svg><b>Opção com nutricionista</b><p>Alimentação ajustada com a Thamires Weber, CRN 1-22412.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. AUTORIDADE -->
+<section class="sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="video-box rv" id="desafio">
+      <video id="vid" src="video/desafio.mp4" poster="img/diego-poster.jpg" playsinline preload="metadata"></video>
+      <button type="button" class="v-play" id="vPlay" aria-label="Assistir ao vídeo do Diego"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+      <div class="v-barra" aria-hidden="true"><i id="vProg"></i></div>
+      <button type="button" class="v-som" id="vSom" hidden>Toque para pausar</button>
+    </div>
+    <div class="stack rv">
+      <div class="eyebrow" style="margin:0">Quem vai te acompanhar</div>
+      <h2>Prazer, eu sou o <span style="color:#b07f00">Diego Lima</span></h2>
+      <p>Personal trainer, CREF GO 7221. Há 12 anos tenho a minha própria academia em Inhumas, Goiás, e já acompanhei mais de 2.000 alunos.</p>
+      <p>O que funciona é treino curto e bem feito, alimentação que sustenta o músculo e alguém do lado ajustando. Pelo aplicativo, levo esse mesmo acompanhamento para alunos de todo o Brasil.</p>
+      <div class="nums">
+        <div><b>+2.000</b><span>alunos acompanhados</span></div>
+        <div><b>12</b><span>anos de academia</span></div>
+        <div><b>100%</b><span>online, todo o Brasil</span></div>
+      </div>
+      <div class="academia"><img src="img/logo-superacao.jpg" alt="Logo da Superação Academia" width="56" height="56"><div><b>Superação Academia</b><span>Inhumas, GO · 12 anos de estrada</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PROVA SOCIAL -->
 <section id="resultados" style="background:#121317">
   <div class="wrap">
     <div class="head rv">
@@ -474,75 +652,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   </div>
 </section>
 
-<section id="desafio">
-  <div class="wrap desafio-grid">
-    <div class="video-box rv">
-      <video id="vid" src="video/desafio.mp4" poster="img/diego-poster.jpg" playsinline preload="metadata"></video>
-      <button type="button" class="v-play" id="vPlay" aria-label="Assistir ao vídeo do desafio"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>
-      <div class="v-barra" aria-hidden="true"><i id="vProg"></i></div>
-      <button type="button" class="v-som" id="vSom" hidden>Toque para pausar</button>
-    </div>
-    <div class="stack rv">
-      <div class="eyebrow" style="margin:0">O desafio</div>
-      <h2>Falta de tempo <span class="hl">não é mais desculpa</span></h2>
-      <p class="sub" style="margin:0">Em 30 segundos o Diego explica como funciona a consultoria: treino curto, acompanhamento de perto e opção com nutricionista para você parar de adiar.</p>
-      <div class="v-checks">
-        <span>Treinos curtos</span><span>Opção com nutricionista</span><span>Online, todo o Brasil</span>
-      </div>
-      <div class="btns"><a class="btn btn-am" href="#oferta">Quero entrar no desafio</a></div>
-    </div>
-  </div>
-</section>
-
-<section id="quiz" style="background:linear-gradient(180deg,var(--chao),#121317)">
-  <div class="wrap narrow">
-    <div class="head rv">
-      <div class="eyebrow">Teste de 30 segundos</div>
-      <h2>Descubra o seu <span class="hl">ponto de partida</span></h2>
-      <p class="sub">Responda 3 perguntas. O resultado vai junto na sua mensagem para o Diego.</p>
-    </div>
-    <div class="quiz rv" id="quizBox" aria-live="polite">
-      <div class="q-passo"><span id="qN">Pergunta 1 de 3</span><span>Consultoria Diego Lima</span></div>
-      <div class="q-barra"><i id="qBar"></i></div>
-      <div id="qArea"></div>
-    </div>
-  </div>
-</section>
-
-<section id="metodo">
-  <div class="wrap">
-    <div class="head rv">
-      <div class="eyebrow">Como funciona</div>
-      <h2>Consultoria de <span class="hl">recomposição corporal</span></h2>
-      <p class="sub">Perder gordura e ganhar músculo ao mesmo tempo. Sem treino infinito, sem dieta de fome.</p>
-    </div>
-    <div class="passos">
-      <article class="passo rv"><span class="n">1</span><h3>Avaliação</h3><p>Você conta sua rotina, objetivo, histórico e manda suas fotos. Tudo começa daqui.</p></article>
-      <article class="passo rv"><span class="n">2</span><h3>Treino curto</h3><p>Treino montado para o seu tempo e o seu nível, focado no que mais dá resultado.</p></article>
-      <article class="passo rv"><span class="n">3</span><h3>Alimentação</h3><p>No plano com nutricionista, a Thamires Weber monta uma alimentação que você consegue seguir, sem cortar o que mantém o músculo.</p></article>
-      <article class="passo rv"><span class="n">4</span><h3>Ajustes</h3><p>Acompanhamento durante todo o plano, com ajustes conforme o seu corpo responde.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="sobre" id="sobre">
-  <div class="wrap sobre-grid">
-    <div class="foto-2 rv"><img src="img/diego-poster.jpg" alt="Diego Lima na academia" width="360" height="640" loading="lazy"></div>
-    <div class="stack rv">
-      <div class="eyebrow" style="margin:0">Quem vai te acompanhar</div>
-      <h2>Prazer, eu sou o <span style="color:#b07f00">Diego Lima</span></h2>
-      <p>Personal trainer, CREF GO 7221. Há 12 anos tenho a minha própria academia em Inhumas, Goiás, e já acompanhei mais de 2.000 alunos.</p>
-      <p>O que funciona é treino curto e bem feito, alimentação que sustenta o músculo e alguém do lado ajustando. Agora você tem o mesmo acompanhamento dos meus alunos presenciais, de qualquer lugar do Brasil.</p>
-      <div class="nums">
-        <div><b>+2.000</b><span>alunos acompanhados</span></div>
-        <div><b>12</b><span>anos de academia</span></div>
-        <div><b>100%</b><span>online, todo o Brasil</span></div>
-      </div>
-      <div class="academia"><img src="img/logo-superacao.jpg" alt="Logo da Superação Academia" width="56" height="56"><div><b>Superação Academia</b><span>Inhumas, GO · 12 anos de estrada</span></div></div>
-    </div>
-  </div>
-</section>
-
+<!-- 7. PLANOS E PREÇOS -->
 <section id="oferta">
   <div class="wrap">
     <div class="head rv">
@@ -566,23 +676,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   </div>
 </section>
 
-<section>
+<!-- 8. QUEBRA DE OBJEÇÕES -->
+<section id="faq">
   <div class="wrap narrow">
     <div class="head rv">
       <div class="eyebrow">Perguntas frequentes</div>
       <h2>Tira suas <span class="hl">dúvidas</span></h2>
     </div>
     <div class="faq rv">
+      <details><summary>Posso treinar em casa?</summary><p>Pode. O treino é montado para o seu espaço, com ou sem equipamento. Se preferir, também funciona na sua academia.</p></details>
+      <details><summary>Como funciona o aplicativo?</summary><p>Seus treinos ficam organizados por dia no app, com os exercícios, séries e repetições. O Diego acompanha o que você fez e ajusta quando precisa.</p></details>
       <details><summary>Funciona para quem não tem tempo?</summary><p>Foi pensado para isso. Os treinos são curtos e montados para caber na sua rotina.</p></details>
       <details><summary>Preciso estar em Inhumas?</summary><p>Não. A consultoria é online e atende qualquer cidade do Brasil.</p></details>
       <details><summary>Serve para iniciante?</summary><p>Serve. O treino é montado de acordo com o seu nível e a sua experiência.</p></details>
       <details><summary>Em quanto tempo vejo resultado?</summary><p>Muita gente já percebe diferença nos primeiros 45 dias. O resultado depende da sua dedicação ao treino e à alimentação, por isso os planos mais longos rendem mais.</p></details>
+      <details><summary>Como funciona a parte da nutricionista?</summary><p>Nos planos com acompanhamento nutricional, a nutricionista Thamires Weber (CRN 1-22412) monta uma alimentação para o seu objetivo, para perder gordura sem perder massa muscular.</p></details>
     </div>
   </div>
 </section>
 
-<section class="final" id="contato">
-  <div class="wrap form-grid" style="text-align:left">
+<!-- 9. FORMULÁRIO DE CAPTURA -->
+<section class="captura" id="contato">
+  <div class="wrap form-grid">
     <div class="stack rv">
       <div class="eyebrow" style="margin:0">Ainda com dúvida?</div>
       <h2>Deixa seu contato que o <span class="hl">Diego te chama</span></h2>
@@ -604,14 +719,51 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   </div>
 </section>
 
+<!-- 10. CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <div class="eyebrow">Sua decisão</div>
+    <h2>Se você realmente quer <span class="hl">mudar de vida</span>, o primeiro passo é agora</h2>
+    <p class="sub">Resultado não vem de motivação. Vem de decisão, método e acompanhamento. O Diego está pronto para te acompanhar.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn btn-am btn-xl" data-msg="Oi, Diego! Eu realmente quero mudar de vida. Quero começar a consultoria, me ajuda a escolher o plano?" href="#" target="_blank" rel="noopener">Eu quero mudar de vida</a>
+      <a class="btn btn-o" href="#oferta">Ver os planos</a>
+    </div>
+  </div>
+</section>
 </main>
 
+<!-- 11. RODAPÉ -->
 <footer>
-  <div class="wrap">
-    <span>Diego Lima Personal · CREF GO 7221 · Inhumas, GO</span>
-    <span>@diegolimapersonall · <span style="user-select:all">(62) 8450-4406</span></span>
+  <div class="wrap rodape">
+    <div class="r-col">
+      <a class="logo" href="#topo"><i>DL</i><div><b>Diego Lima</b><span>Personal trainer</span></div></a>
+      <p>Consultoria online de recomposição corporal. CREF GO 7221.</p>
+    </div>
+    <div class="r-col">
+      <b>Contato</b>
+      <span>WhatsApp: <span style="user-select:all">(62) 8450-4406</span></span>
+      <a href="https://www.instagram.com/diegolimapersonall/" target="_blank" rel="noopener">Instagram @diegolimapersonall</a>
+      <span>Superação Academia · Inhumas, GO</span>
+    </div>
+    <div class="r-col">
+      <b>Informações</b>
+      <button type="button" class="link-btn" id="privOpen">Política de privacidade</button>
+      <span>© 2026 Diego Lima Personal</span>
+    </div>
   </div>
 </footer>
+
+<dialog class="priv" id="priv" aria-labelledby="privT">
+  <div class="priv-in">
+    <h3 id="privT">Política de privacidade</h3>
+    <p>Esta página coleta apenas os dados que você informa no formulário e no teste: nome, WhatsApp, objetivo e suas respostas.</p>
+    <p>Eles são usados somente para a equipe do Diego Lima entrar em contato com você sobre a consultoria. Não vendemos nem compartilhamos seus dados com terceiros.</p>
+    <p>A página pode usar ferramentas de medição de anúncios, como o Pixel da Meta, para entender de onde vêm os visitantes.</p>
+    <p>Você pode pedir a correção ou a exclusão dos seus dados a qualquer momento pelo WhatsApp (62) 8450-4406, conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p>
+    <button type="button" class="btn btn-am" id="privClose">Entendi</button>
+  </div>
+</dialog>
 
 <div class="barra hide" id="barra">
   <a class="btn btn-zap" data-wa="barra" href="#" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#zap"/></svg>Falar com o Diego no WhatsApp</a>
@@ -735,6 +887,64 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   document.querySelectorAll("[data-msg]").forEach(function(a){ a.href = wa(a.getAttribute("data-msg")); });
   var fotoEq = document.querySelector(".g-foto img");
   if (fotoEq){ var some = function(){ fotoEq.parentNode.remove(); }; if (fotoEq.complete && !fotoEq.naturalWidth) some(); else fotoEq.addEventListener("error", some); }
+
+  /* App: calendário da semana */
+  var SEMANA = [
+    {d:"Seg", n:"12", st:"feito", t:"Treino A · Pernas e glúteos", min:"35 min",
+      casa:[["Agachamento livre","4x15"],["Afundo alternado","3x12"],["Elevação de quadril","4x15"],["Prancha","3x40s"]],
+      academia:[["Leg press","4x12"],["Cadeira extensora","3x15"],["Stiff com halteres","3x12"],["Prancha","3x40s"]],
+      msg:"Execução perfeita no agachamento. Na próxima, sobe um pouco o ritmo."},
+    {d:"Ter", n:"13", st:"feito", t:"Treino B · Peito, costas e ombros", min:"35 min",
+      casa:[["Flexão de braço","4x12"],["Remada com mochila","4x12"],["Elevação lateral com garrafa","3x15"],["Mergulho no banco","3x12"]],
+      academia:[["Supino com halteres","4x10"],["Puxada frontal","4x10"],["Desenvolvimento","3x12"],["Remada baixa","3x12"]],
+      msg:"Boa! Você completou todas as séries. Mantém a carga."},
+    {d:"Qua", n:"14", st:"feito", t:"Descanso ativo", min:"30 min",
+      casa:[["Caminhada leve","30 min"],["Alongamento","10 min"]],
+      academia:[["Esteira leve","30 min"],["Alongamento","10 min"]],
+      msg:"Descanso também é treino. Hidratação em dia!"},
+    {d:"Qui", n:"15", st:"hoje", t:"Treino C · Pernas e core", min:"35 min",
+      casa:[["Agachamento sumô","4x15"],["Ponte de glúteo unilateral","3x12"],["Panturrilha em pé","4x20"],["Abdominal bicicleta","3x20"]],
+      academia:[["Agachamento no smith","4x10"],["Mesa flexora","3x12"],["Panturrilha no leg","4x15"],["Abdominal na polia","3x15"]],
+      msg:"Hoje é dia de perna. Capricha que amanhã eu olho seu treino."},
+    {d:"Sex", n:"16", st:"prox", t:"Treino D · Superiores e core", min:"30 min",
+      casa:[["Flexão inclinada","4x12"],["Remada unilateral","4x12"],["Prancha lateral","3x30s"],["Polichinelo","3x40s"]],
+      academia:[["Crucifixo","3x12"],["Remada curvada","4x10"],["Rosca direta","3x12"],["Tríceps na polia","3x12"]],
+      msg:"Último treino da semana. Fecha com tudo!"},
+    {d:"Sáb", n:"17", st:"prox", t:"Cardio opcional", min:"25 min",
+      casa:[["Circuito: polichinelo, agachamento e corrida parada","5 voltas"]],
+      academia:[["Bike ou elíptico","25 min"]],
+      msg:"Opcional. Se der, ótimo. Se não der, sem culpa."},
+    {d:"Dom", n:"18", st:"desc", t:"Descanso", min:"",
+      casa:[["Dia livre para recuperar","descanso"]],
+      academia:[["Dia livre para recuperar","descanso"]],
+      msg:"Aproveita o domingo. Segunda começa a semana 4."}
+  ];
+  var local = "casa", diaSel = 3, semEl = document.getElementById("semana"), tc = document.getElementById("treinoCard");
+  if (semEl && tc){
+    semEl.innerHTML = SEMANA.map(function(s, i){
+      var c = s.st === "feito" ? " feito" : s.st === "hoje" ? " hoje" : s.st === "desc" ? " desc" : "";
+      return '<button type="button" class="dia' + c + '" data-i="' + i + '" aria-pressed="' + (i === diaSel) + '" aria-label="' + s.d + ', ' + s.t + '"><small>' + s.d + '</small><b>' + s.n + '</b><i></i></button>';
+    }).join("");
+    var mostra = function(){
+      var s = SEMANA[diaSel], ex = s[local];
+      var st = s.st === "feito" ? '<span class="tc-st ok">Concluído</span>' : s.st === "hoje" ? '<span class="tc-st hj">Hoje</span>' : s.st === "desc" ? '<span class="tc-st">Descanso</span>' : '<span class="tc-st">Próximo</span>';
+      tc.innerHTML = '<div class="tc-topo"><div><h4>' + s.t + '</h4><small>' + (local === "casa" ? "Em casa" : "Na academia") + (s.min ? " · " + s.min : "") + '</small></div>' + st + '</div>' +
+        '<ul class="ex">' + ex.map(function(e){ return "<li>" + e[0] + "<span>" + e[1] + "</span></li>"; }).join("") + '</ul>' +
+        '<div class="msg-diego"><i>DL</i><p><b>Diego Lima</b>' + s.msg + '</p></div>';
+      semEl.querySelectorAll(".dia").forEach(function(b, i){ b.setAttribute("aria-pressed", String(i === diaSel)); });
+      tc.classList.remove("troca"); void tc.offsetWidth; tc.classList.add("troca");
+    };
+    semEl.addEventListener("click", function(e){ var b = e.target.closest(".dia"); if (!b) return; diaSel = +b.dataset.i; mostra(); });
+    var locBtns = Array.prototype.slice.call(document.querySelectorAll(".local button"));
+    locBtns.forEach(function(b){ b.addEventListener("click", function(){ local = b.dataset.local; locBtns.forEach(function(x){ x.setAttribute("aria-pressed", String(x === b)); }); mostra(); }); });
+    mostra();
+  }
+
+  /* Política de privacidade */
+  var priv = document.getElementById("priv");
+  document.getElementById("privOpen").addEventListener("click", function(){ if (priv.showModal) priv.showModal(); else priv.setAttribute("open",""); });
+  document.getElementById("privClose").addEventListener("click", function(){ if (priv.close) priv.close(); else priv.removeAttribute("open"); });
+  priv.addEventListener("click", function(e){ if (e.target === priv && priv.close) priv.close(); });
 
   /* Formulário */
   var F = {nome:"fNome", tel:"fTel", obj:"fObj", tempo:"fTempo", cidade:"fCidade"};
