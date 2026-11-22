@@ -786,7 +786,7 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
   document.documentElement.classList.add("js");
   var CONFIG = {
     WHATSAPP: "556284504406",
-    SHEETS_URL: "" /* cole aqui o link do Apps Script da planilha de leads */
+    SHEETS_URL: "https://script.google.com/macros/s/AKfycbykCEJZ3Acq0kn3_DHUBL3RxhwXHfBgUDGmGTmiWClEMLCQ8Z-W6u2ja9ivyVQcNOgefg/exec" /* planilha Leads Diego Lima Personal */
   };
   /* Rastreador de origem: ?origem=anuncio no link do anúncio (ou utm_medium=pago) */
   var ORIGEM = "Orgânico";
@@ -844,7 +844,7 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
     area.innerHTML = '<div class="q-res"><span class="selo">' + t + '</span><p>' + d + '</p><ul><li>Objetivo: ' + resp[0] + '</li><li>Tempo: ' + resp[1] + '</li><li>Rotina: ' + resp[2] + '</li></ul>' +
       '<a class="btn btn-zap" id="qZap" href="' + wa(msg) + '" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#zap"/></svg>Enviar meu resultado ao Diego</a>' +
       '<button type="button" class="q-volta" id="qVolta">Refazer o teste</button></div>';
-    document.getElementById("qZap").addEventListener("click", function(){ salvaLead({origem:"quiz", objetivo:resp[0], tempo:resp[1], rotina:resp[2]}); });
+    document.getElementById("qZap").addEventListener("click", function(){ salvaLead({fonte:"quiz", objetivo:resp[0], tempo:resp[1], rotina:resp[2]}); });
     document.getElementById("qVolta").addEventListener("click", function(){ resp = []; pergunta(0); });
   }
   pergunta(0);
@@ -991,7 +991,7 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
     if (!F.obj.value){ erro.push("o seu objetivo"); F.obj.closest(".campo").classList.add("erro"); }
     if (erro.length){ err.textContent = "Falta preencher " + erro.join(", ") + "."; return; }
     err.textContent = "";
-    var d = {origem:"formulario", nome:F.nome.value.trim(), whatsapp:F.tel.value, objetivo:F.obj.value, tempo:F.tempo ? F.tempo.value : "", cidade:F.cidade ? F.cidade.value.trim() : ""};
+    var d = {fonte:"formulario", nome:F.nome.value.trim(), whatsapp:F.tel.value, objetivo:F.obj.value, tempo:F.tempo ? F.tempo.value : "", cidade:F.cidade ? F.cidade.value.trim() : ""};
     salvaLead(d);
     var t = "Oi, Diego! Sou " + d.nome + (d.cidade ? ", de " + d.cidade : "") + ".\nObjetivo: " + d.objetivo + (d.tempo ? "\nTempo por dia: " + d.tempo : "") + "\nQuero saber mais sobre os planos da consultoria.";
     var ok = document.getElementById("fOk"); ok.classList.add("on");
