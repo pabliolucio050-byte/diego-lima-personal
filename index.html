@@ -321,6 +321,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 .pc-ico{width:32px;height:32px;border-radius:50%;background:var(--amarelo);color:var(--chao);display:grid;place-items:center;animation:pulso 2s infinite}
 @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(255,194,26,.6)}100%{box-shadow:0 0 0 14px rgba(255,194,26,0)}}
 @media (min-width:920px){.play-chip{right:-26px}}
+.foto-diego .quadro.qv{aspect-ratio:16/9;background:#000}
+.foto-diego .quadro.qv::before,.foto-diego .quadro.qv::after{display:none}
+.foto-diego .quadro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hv-som{position:absolute;right:10px;top:10px;z-index:2;display:inline-flex;align-items:center;gap:8px;background:rgba(13,14,16,.82);border:1px solid var(--linha);color:var(--giz);border-radius:999px;padding:7px 12px;font-family:var(--f-cond);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem;cursor:pointer;backdrop-filter:blur(6px)}
+.hv-som[aria-pressed="false"]{background:var(--amarelo);color:var(--chao);border-color:transparent}
+.hv-som[aria-pressed="true"] .x{display:none}
+.hero .foto-diego{max-width:640px}
+.hero .carimbo{bottom:-18px;left:12px;padding:9px 13px}
+.hero .carimbo b{font-size:1.55rem}
+@media (max-width:919px){.hero .foto-diego{order:-1}.hero-grid{gap:40px}}
+@media (min-width:920px){.hero-grid{grid-template-columns:1fr 1fr}.hero .carimbo{left:-22px}}
 /* Vídeo */
 .desafio-grid{display:grid;gap:30px;align-items:center}
 @media (min-width:860px){.desafio-grid{grid-template-columns:.75fr 1.25fr;gap:56px}}
@@ -501,8 +512,8 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
       </div>
     </div>
     <div class="foto-diego">
-      <div class="quadro"><img src="diego-hero.jpg" alt="Diego Lima, personal trainer, na academia" width="480" height="600"></div>
-      <a class="play-chip" href="#desafio" id="heroPlay"><span class="pc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>Assista o Diego · 30s</a>
+      <div class="quadro qv"><video id="heroVid" src="abertura.mp4" poster="abertura-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de abertura do Diego Lima treinando"></video>
+        <button type="button" class="hv-som" id="heroSom" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5" stroke="currentColor" stroke-width="2" fill="none" class="x"/></svg><span>Ativar som</span></button></div>
       <div class="carimbo">Treine em casa<b>ou na academia</b></div>
     </div>
   </div>
@@ -898,9 +909,18 @@ dialog.priv::backdrop{background:rgba(0,0,0,.75)}
   vid.addEventListener("pause", function(){ vbox.classList.remove("tocando"); vSom.hidden = true; });
   vid.addEventListener("ended", function(){ vbox.classList.remove("tocando"); vSom.hidden = true; vid.currentTime = 0; });
   vid.addEventListener("timeupdate", function(){ if (vid.duration) vProg.style.width = (vid.currentTime / vid.duration * 100) + "%"; });
-  document.getElementById("heroPlay").addEventListener("click", function(e){
-    e.preventDefault(); document.getElementById("desafio").scrollIntoView({behavior:"smooth", block:"center"}); setTimeout(tocar, 500);
-  });
+  /* Vídeo de abertura do topo */
+  var hv = document.getElementById("heroVid"), hs = document.getElementById("heroSom");
+  if (hv && hs) {
+    var tentaTocar = function(){ var p = hv.play(); if (p && p.catch) p.catch(function(){}); };
+    tentaTocar();
+    hs.addEventListener("click", function(){
+      hv.muted = !hv.muted; if (!hv.muted) { hv.currentTime = 0; tentaTocar(); }
+      hs.setAttribute("aria-pressed", hv.muted ? "false" : "true");
+      hs.querySelector("span").textContent = hv.muted ? "Ativar som" : "Som ligado";
+    });
+    vid.addEventListener("play", function(){ hv.muted = true; hs.setAttribute("aria-pressed","false"); hs.querySelector("span").textContent = "Ativar som"; });
+  }
 
   /* Checkout Eduzz com rastreador */
   document.querySelectorAll("[data-checkout]").forEach(function(a){
